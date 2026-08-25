@@ -98,9 +98,7 @@ export default function AppFAB() {
 
                   <div className="flex flex-col gap-3 w-full max-w-[200px]">
                     <a
-                      href="https://apps.apple.com/za/app/payjustnow/id1614966924"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="#"
                       className="block"
                     >
                       <img
@@ -112,9 +110,7 @@ export default function AppFAB() {
                       />
                     </a>
                     <a
-                      href="https://play.google.com/store/apps/details?id=com.payjustnow.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="#"
                       className="block"
                     >
                       <img
@@ -126,9 +122,7 @@ export default function AppFAB() {
                       />
                     </a>
                     <a
-                      href="https://appgallery.huawei.com/app/C106929799"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="#"
                       className="block"
                     >
                       <img

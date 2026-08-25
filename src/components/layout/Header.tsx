@@ -78,17 +78,7 @@ export default function Header() {
                 <span className="text-white font-extrabold text-xl tracking-tight">PayJustNow</span>
               </Link>
 
-              <div className="hidden md:flex items-center bg-gray-800 rounded-full p-0.5 ml-2">
-                <span className="px-4 py-1.5 rounded-full bg-white text-black text-sm font-semibold cursor-default">
-                  Shopper
-                </span>
-                <a
-                  href="https://payjustnow.com/business"
-                  className="px-4 py-1.5 rounded-full text-gray-300 text-sm font-medium hover:text-white transition-colors"
-                >
-                  Business
-                </a>
-              </div>
+
             </div>
 
             <nav className="hidden lg:flex items-center gap-1">
@@ -192,20 +182,6 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-black"
           >
             <div className="pt-20 px-6 pb-8 h-full overflow-y-auto">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center bg-gray-800 rounded-full p-0.5">
-                  <span className="px-4 py-1.5 rounded-full bg-white text-black text-sm font-semibold">
-                    Shopper
-                  </span>
-                  <a
-                    href="https://payjustnow.com/business"
-                    className="px-4 py-1.5 rounded-full text-gray-300 text-sm font-medium"
-                  >
-                    Business
-                  </a>
-                </div>
-              </div>
-
               <nav className="space-y-1">
                 {shopperLinks.map((item) => (
                   <div key={item.label}>

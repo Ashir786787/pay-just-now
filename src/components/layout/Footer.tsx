@@ -31,40 +31,29 @@ const footerSections = [
     ],
   },
   {
-    title: "Business",
-    links: [
-      { label: "How it Works", href: "https://payjustnow.com/business/how-it-works" },
-      { label: "Benefits", href: "https://payjustnow.com/business" },
-      { label: "Support", href: "https://payjustnow.com/business/support" },
-      { label: "FAQs", href: "https://payjustnow.com/business/support#faq" },
-      { label: "Contact Us", href: "https://payjustnow.com/business/support#contact" },
-    ],
-  },
-  {
     title: "Contact Us",
     links: [
       { label: "Shoppers", href: "/support#contact" },
-      { label: "Businesses", href: "https://payjustnow.com/business/support#contact" },
-      { label: "Press Office", href: "mailto:pr@payjustnow.com" },
-      { label: "Careers", href: "mailto:hr@payjustnow.com" },
-      { label: "Other Queries", href: "mailto:info@payjustnow.com" },
+      { label: "Press Office", href: "#" },
+      { label: "Careers", href: "#" },
+      { label: "Other Queries", href: "#" },
     ],
   },
 ];
 
 const socialLinks = [
-  { icon: FacebookIcon, href: "https://www.facebook.com/PayJustNow/", label: "Facebook" },
-  { icon: InstagramIcon, href: "https://www.instagram.com/pay_just_now/", label: "Instagram" },
-  { icon: LinkedInIcon, href: "https://www.linkedin.com/company/payjustnow/", label: "LinkedIn" },
-  { icon: TiktokIcon, href: "https://www.tiktok.com/@pay_just_now", label: "TikTok" },
-  { icon: YoutubeIcon, href: "https://www.youtube.com/@payjustnow", label: "YouTube" },
+  { icon: FacebookIcon, href: "#", label: "Facebook" },
+  { icon: InstagramIcon, href: "#", label: "Instagram" },
+  { icon: LinkedInIcon, href: "#", label: "LinkedIn" },
+  { icon: TiktokIcon, href: "#", label: "TikTok" },
+  { icon: YoutubeIcon, href: "#", label: "YouTube" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-surface text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-gray-300">
@@ -93,8 +82,6 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary transition-colors"
                   aria-label={social.label}
                 >
