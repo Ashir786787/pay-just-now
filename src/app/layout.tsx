@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import HeaderCta from "@/components/layout/HeaderCta";
 import Footer from "@/components/layout/Footer";
 import AppFAB from "@/components/layout/AppFAB";
 import ClientProviders from "@/components/layout/ClientProviders";
@@ -24,7 +25,10 @@ export default function RootLayout({
       <body className="antialiased">
         <ClientProviders>
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen">
+            <HeaderCta />
+            {children}
+          </main>
           <Footer />
           <AppFAB />
         </ClientProviders>

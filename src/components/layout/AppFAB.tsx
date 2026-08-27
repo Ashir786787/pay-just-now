@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CloseIcon } from "@/components/icons/Icons";
+import {
+  AppStoreButton,
+  GooglePlayButton,
+  AppGalleryButton,
+} from "@/components/icons/StoreBadges";
 
 export default function AppFAB() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -18,7 +23,7 @@ export default function AppFAB() {
           <div className="bg-white rounded-2xl shadow-2xl p-3 flex flex-col items-center gap-2 border border-gray-100 hover:shadow-3xl transition-shadow">
             <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center border border-gray-100 overflow-hidden">
               <img
-                src="https://payjustnow.com/wp-content/uploads/2024/09/PJN-QR-1.webp"
+                src="https://payjustnow.com/wp-content/uploads/2025/04/Group-13080-1.svg"
                 alt="Scan to get the app"
                 className="w-full h-full object-contain"
                 width={96}
@@ -26,27 +31,15 @@ export default function AppFAB() {
               />
             </div>
             <div className="flex flex-col gap-1.5 w-full">
-              <img
-                src="https://payjustnow.com/wp-content/uploads/2024/08/Frame-427319286.webp"
-                alt="Download on App Store"
-                className="w-full h-auto"
-                width={96}
-                height={28}
-              />
-              <img
-                src="https://payjustnow.com/wp-content/uploads/2024/08/Frame-427319285.webp"
-                alt="Get it on Google Play"
-                className="w-full h-auto"
-                width={96}
-                height={28}
-              />
-              <img
-                src="https://payjustnow.com/wp-content/uploads/2024/08/Frame-427319284.webp"
-                alt="Explore it on AppGallery"
-                className="w-full h-auto"
-                width={96}
-                height={28}
-              />
+              <span className="block overflow-hidden rounded bg-black p-1.5">
+                <AppStoreButton className="block h-5 w-full" />
+              </span>
+              <span className="block overflow-hidden rounded bg-black p-1.5">
+                <GooglePlayButton className="block h-5 w-full" />
+              </span>
+              <span className="block overflow-hidden rounded bg-black p-1.5">
+                <AppGalleryButton className="block h-5 w-full" />
+              </span>
             </div>
           </div>
         </button>
@@ -84,7 +77,7 @@ export default function AppFAB() {
                 <div className="flex flex-col items-center gap-6">
                   <div className="w-48 h-48 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden">
                     <img
-                      src="https://payjustnow.com/wp-content/uploads/2024/09/PJN-QR-1.webp"
+                      src="https://payjustnow.com/wp-content/uploads/2025/04/Group-13080-1.svg"
                       alt="Scan to get the app"
                       className="w-full h-full object-contain"
                       width={192}
@@ -97,41 +90,14 @@ export default function AppFAB() {
                   </p>
 
                   <div className="flex flex-col gap-3 w-full max-w-[200px]">
-                    <a
-                      href="#"
-                      className="block"
-                    >
-                      <img
-                        src="https://payjustnow.com/wp-content/uploads/2024/08/Frame-427319286.webp"
-                        alt="Download on App Store"
-                        className="w-full h-auto"
-                        width={200}
-                        height={60}
-                      />
+                    <a href="#" className="block overflow-hidden rounded-lg bg-black p-2">
+                      <AppStoreButton className="block h-7 w-full" />
                     </a>
-                    <a
-                      href="#"
-                      className="block"
-                    >
-                      <img
-                        src="https://payjustnow.com/wp-content/uploads/2024/08/Frame-427319285.webp"
-                        alt="Get it on Google Play"
-                        className="w-full h-auto"
-                        width={200}
-                        height={60}
-                      />
+                    <a href="#" className="block overflow-hidden rounded-lg bg-black p-2">
+                      <GooglePlayButton className="block h-7 w-full" />
                     </a>
-                    <a
-                      href="#"
-                      className="block"
-                    >
-                      <img
-                        src="https://payjustnow.com/wp-content/uploads/2024/08/Frame-427319284.webp"
-                        alt="Explore it on AppGallery"
-                        className="w-full h-auto"
-                        width={200}
-                        height={60}
-                      />
+                    <a href="#" className="block overflow-hidden rounded-lg bg-black p-2">
+                      <AppGalleryButton className="block h-7 w-full" />
                     </a>
                   </div>
                 </div>

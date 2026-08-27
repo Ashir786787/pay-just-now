@@ -47,6 +47,21 @@ body {
   background: #a8e000;
 }
 
+/* Fluid site container matching the original payjustnow layout */
+.site-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+@media (min-width: 1100px) {
+  .site-container {
+    width: 83vw;
+  }
+}
+
 /* Perks marquee animation */
 @keyframes marquee {
   0% { transform: translateX(0); }

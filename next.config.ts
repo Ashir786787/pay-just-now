@@ -6,12 +6,12 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "payjustnow.com",
-        pathname: "/wp-content/uploads/**",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "www.payjustnow.com",
-        pathname: "/wp-content/uploads/**",
+        pathname: "/**",
       },
     ],
   },
