@@ -194,21 +194,11 @@ export default function Header() {
           </nav>
 
           <div className="header-buttons">
-            <a
-              className="btn btn-outline-dark"
-              href="https://app.payjustnow.com/login"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className="btn btn-outline-dark" href="#">
               <span className="btn-fill" aria-hidden="true"></span>
               <ButtonText label="Log In" />
             </a>
-            <a
-              className="btn btn-dark"
-              href="https://app.payjustnow.com/register/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className="btn btn-dark" href="#">
               <span className="btn-fill" aria-hidden="true"></span>
               <ButtonText label="Sign Up" />
             </a>

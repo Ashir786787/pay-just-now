@@ -11,7 +11,7 @@ export default function FeaturedStores() {
   return (
     <section className="stores-section">
       <div className="stores-section-inner">
-        <div className="stores-heading"><h2>Featured Stores</h2><a href="https://app.payjustnow.com/stores" target="_blank" rel="noopener noreferrer">View All</a></div>
+        <div className="stores-heading"><h2>Featured Stores</h2><a href="#">View All</a></div>
         <div className="stores-grid">
           {stores.map((store) => (
             <a key={store.name} className="store-card" href={store.href} target="_blank" rel="noopener noreferrer">

@@ -37,7 +37,7 @@ export default function GetTheApp() {
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${label}`}><Icon /></a>
             ))}
           </div>
-          <a className="app-download-button" href="https://app.payjustnow.com/register/overview" target="_blank" rel="noopener noreferrer">Download</a>
+          <a className="app-download-button" href="#">Download</a>
         </div>
       </div>
     </section>

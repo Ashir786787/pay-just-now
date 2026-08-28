@@ -47,17 +47,13 @@ export default function ProductHero({
             {showCta && (
               <div className="flex flex-wrap gap-4 mt-4">
                 <Link
-                  href="https://app.payjustnow.com/login"
-                  target="_blank"
-                  rel="noopener"
+                  href="#"
                   className="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors"
                 >
                   Log In
                 </Link>
                 <Link
-                  href="https://app.payjustnow.com/register/overview"
-                  target="_blank"
-                  rel="noopener"
+                  href="#"
                   className="px-8 py-3 rounded-full bg-primary text-surface font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Sign Up

@@ -22,7 +22,7 @@ export default function Hero() {
               Shop more. Stress less. Clever.
             </p>
             <div className="s-buttons">
-              <a href="https://app.payjustnow.com/register/overview" className="btn btn-primary btn-md " target="_blank">
+              <a href="#" className="btn btn-primary btn-md ">
                 <span className="btn-fill"></span>
                 <span className="btn-text">
                   <span className="line line-normal">Sign Up</span>

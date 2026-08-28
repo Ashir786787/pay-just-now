@@ -64,9 +64,7 @@ export default function AppFAB() {
         </a>
       </div>
       <a
-        href="https://app.payjustnow.com/register/overview"
-        target="_blank"
-        rel="noopener"
+        href="#"
         className="app-button"
       >
         Download

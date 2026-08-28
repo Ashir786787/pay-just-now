@@ -90,7 +90,7 @@ export default function FeaturedDeals() {
           <div className="s-content">
             <div className="s-title-wrapper">
               <h2 className="s-title">Deals</h2>
-              <a className="s-link" href="https://app.payjustnow.com/my-deals/all" target="_blank">
+              <a className="s-link" href="#">
                 View All
               </a>
             </div>
@@ -144,7 +144,7 @@ export default function FeaturedDeals() {
             ))}
           </div>
           <div className="deals-cta">
-            <a className="deals-cta-link" href="https://app.payjustnow.com/login" target="_blank"></a>
+            <a className="deals-cta-link" href="#"></a>
             <div className="deals-cta-inner">
               <div className="deals-cta-media">
                 <div className="deals-cta-text">

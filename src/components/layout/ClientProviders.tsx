@@ -15,27 +15,53 @@ export default function ClientProviders({ children }: { children: React.ReactNod
     html.classList.add("is-shopper");
 
     let lastY = window.scrollY;
-    const onScroll = () => {
+    let delta = 0;
+    let ticking = false;
+    let rafId: number | null = null;
+
+    const update = () => {
+      ticking = false;
       const y = window.scrollY;
+      const d = y - lastY;
+      lastY = y;
+
       html.classList.toggle("scrolled", y > 0);
-      const goingDown = y > lastY + 160;
-      const goingUp = y < lastY - 160;
-      if (goingDown) {
-        html.classList.add("scrolled-down");
-        html.classList.remove("scrolled-up");
-      } else if (goingUp) {
-        html.classList.add("scrolled-up");
-        html.classList.remove("scrolled-down");
-      }
+
       if (y <= 0) {
         html.classList.remove("scrolled-up");
         html.classList.remove("scrolled-down");
+        delta = 0;
+        return;
       }
-      lastY = y;
+
+      if ((delta > 0 && d < 0) || (delta < 0 && d > 0)) {
+        delta = 0;
+      }
+      delta += d;
+
+      if (Math.abs(delta) > 32) {
+        if (delta > 0) {
+          html.classList.add("scrolled-down");
+          html.classList.remove("scrolled-up");
+        } else {
+          html.classList.add("scrolled-up");
+          html.classList.remove("scrolled-down");
+        }
+        delta = 0;
+      }
     };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        rafId = window.requestAnimationFrame(update);
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
     };
   }, []);
 

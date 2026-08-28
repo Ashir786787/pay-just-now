@@ -53,10 +53,8 @@ export default function HeaderCta() {
         </div>
       </div>
       <a
-        href="https://app.payjustnow.com/register/overview"
+        href="#"
         className="btn btn-outline-light btn-sm"
-        target="_blank"
-        rel="noopener"
       >
         <span className="btn-fill"></span>
         <span className="btn-text">
