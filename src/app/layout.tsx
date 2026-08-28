@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import { Anton, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import HeaderCta from "@/components/layout/HeaderCta";
 import Footer from "@/components/layout/Footer";
 import AppFAB from "@/components/layout/AppFAB";
 import ClientProviders from "@/components/layout/ClientProviders";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "PayJustNow | The Clever Way To Pay",
@@ -21,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={[anton.variable, manrope.variable].join(" ")}>
       <body className="antialiased">
         <ClientProviders>
           <Header />

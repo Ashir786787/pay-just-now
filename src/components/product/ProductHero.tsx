@@ -47,13 +47,17 @@ export default function ProductHero({
             {showCta && (
               <div className="flex flex-wrap gap-4 mt-4">
                 <Link
-                  href="#"
+                  href="https://app.payjustnow.com/login"
+                  target="_blank"
+                  rel="noopener"
                   className="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors"
                 >
                   Log In
                 </Link>
                 <Link
-                  href="#"
+                  href="https://app.payjustnow.com/register/overview"
+                  target="_blank"
+                  rel="noopener"
                   className="px-8 py-3 rounded-full bg-primary text-surface font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Sign Up
@@ -81,13 +85,13 @@ export default function ProductHero({
             />
 
             <div className="absolute bottom-4 right-4 flex flex-col gap-2">
-              <a href="#" className="block overflow-hidden rounded-md bg-black p-1.5">
+              <a href="https://apps.apple.com/za/app/payjustnow/id1542974651" target="_blank" rel="noopener" className="block overflow-hidden rounded-md bg-black p-1.5">
                 <AppStoreButton className="block h-7 w-auto" />
               </a>
-              <a href="#" className="block overflow-hidden rounded-md bg-black p-1.5">
+              <a href="https://play.google.com/store/apps/details?id=com.payjustnow" target="_blank" rel="noopener" className="block overflow-hidden rounded-md bg-black p-1.5">
                 <GooglePlayButton className="block h-7 w-auto" />
               </a>
-              <a href="#" className="block overflow-hidden rounded-md bg-black p-1.5">
+              <a href="https://appgallery.huawei.com/app/C103873181" target="_blank" rel="noopener" className="block overflow-hidden rounded-md bg-black p-1.5">
                 <AppGalleryButton className="block h-7 w-auto" />
               </a>
             </div>

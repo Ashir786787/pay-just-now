@@ -16,7 +16,9 @@ export default function DownloadSection() {
           <div>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
-                href="#"
+                href="https://apps.apple.com/za/app/payjustnow/id1542974651"
+                target="_blank"
+                rel="noopener"
                 className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
               >
                 <svg
@@ -36,7 +38,9 @@ export default function DownloadSection() {
               </Link>
 
               <Link
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.payjustnow"
+                target="_blank"
+                rel="noopener"
                 className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
               >
                 <svg
@@ -56,7 +60,9 @@ export default function DownloadSection() {
               </Link>
 
               <Link
-                href="#"
+                href="https://appgallery.huawei.com/app/C103873181"
+                target="_blank"
+                rel="noopener"
                 className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
               >
                 <svg

@@ -32,7 +32,9 @@ function PostsAd() {
         </h4>
         <p className="text-sm leading-relaxed text-gray-500">{sponsorAd.text}</p>
         <a
-          href="#"
+          href="https://www.edgars.co.za/"
+          target="_blank"
+          rel="noopener"
           className="mt-auto inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-black/80"
         >
           Get it Now

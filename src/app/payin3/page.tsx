@@ -197,7 +197,7 @@ const aboutOptions = [
 
 export default function PayIn3Page() {
   return (
-    <div className="lg:pt-[132px]">
+    <div className="pt-[146px] lg:pt-[152px]">
       <ProductHero
         title="Pay in"
         titleHighlight="3"

@@ -7,6 +7,10 @@ export interface BlogPost {
   image?: string;
 }
 
+export function postHref(title: string) {
+  return `/press#${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+}
+
 export interface BlogCategory {
   id: string;
   label: string;

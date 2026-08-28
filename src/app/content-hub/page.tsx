@@ -1,12 +1,15 @@
-import ComingSoon from "@/components/coming-soon/ComingSoon";
+import BlogHero from "@/components/blog/BlogHero";
+import PopularPosts from "@/components/blog/PopularPosts";
+import CategoryExplore from "@/components/blog/CategoryExplore";
+import PostsGrid from "@/components/blog/PostsGrid";
 
 export default function ContentHubPage() {
   return (
-    <div className="lg:pt-[132px]">
-      <ComingSoon
-        title="Content Hub"
-        description="Tips, tricks and insights to help you shop smarter. We're putting the finishing touches on this page — check back soon."
-      />
+    <div className="pt-[146px] lg:pt-[152px]">
+      <BlogHero title="Content Hub" description="Tips, tricks and insights to help you shop smarter." />
+      <PopularPosts />
+      <CategoryExplore />
+      <PostsGrid />
     </div>
   );
 }

@@ -66,7 +66,9 @@ export default function VideoSection({ videos }: VideoSectionProps) {
         </div>
 
         <a
-          href="#"
+          href="https://www.youtube.com/@PayJustNow"
+          target="_blank"
+          rel="noopener"
           className="inline-block mt-12 px-8 py-3 rounded-full border-2 border-surface text-surface font-semibold hover:bg-surface hover:text-white transition-colors"
         >
           View all videos

@@ -9,7 +9,7 @@ import BrowseAllStores from "@/components/home/BrowseAllStores";
 
 export default function HomePage() {
   return (
-    <div className="lg:pt-[132px]">
+    <div id="shopper_home">
       <Hero />
       <ShopNowPayClever />
       <WhyChooseClever />

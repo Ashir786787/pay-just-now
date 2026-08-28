@@ -112,7 +112,7 @@ export default function FaqSection({ title, faqs }: FaqSectionProps) {
             to our most common queries or contact us directly.
           </p>
           <a
-            href="#"
+            href="/support#faq"
             className="mt-6 inline-flex items-center justify-center rounded-full bg-[#BDF500] px-7 py-3 text-sm font-semibold text-black transition-transform hover:scale-105"
           >
             Chatbot
@@ -129,7 +129,7 @@ export default function FaqSection({ title, faqs }: FaqSectionProps) {
             Didn&apos;t find what you&apos;re looking for?
           </p>
           <a
-            href="#"
+            href="mailto:hello@payjustnow.com"
             className="mt-3 inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-gray-400"
           >
             Visit our Knowledge Base

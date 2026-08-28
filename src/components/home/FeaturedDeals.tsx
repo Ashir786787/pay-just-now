@@ -1,256 +1,176 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
 
 interface Deal {
   title: string;
-  storeName: string;
+  href: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   logo: string;
   dealPrefix: string;
   dealValue: string;
   expiry: string;
-  type: "Sale" | "Discount";
+  type: "sale" | "discount";
+  typeLabel: "Sale" | "Discount";
 }
 
 const deals: Deal[] = [
   {
     title: "Save Up To 35% on Selected Clothing",
-    storeName: "Monosi Movements",
-    image:
-      "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_Thumbnail_1_10_e60d732d2c.png",
+    href: "https://monosimovements.co.za/collections/new-arrivals/new?utm_medium=app&utm_source=pjn&utm_campaign=monosiaug2024",
+    image: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_Thumbnail_1_10_e60d732d2c.png",
+    imageWidth: 223,
+    imageHeight: 156,
     logo: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_LOGO_34_6a8ae014e1.png",
     dealPrefix: "Save up to",
     dealValue: "35%",
     expiry: "30/11/2025",
-    type: "Sale",
+    type: "sale",
+    typeLabel: "Sale",
   },
   {
     title: "Apple iPad 9.7 - Now R1099!",
-    storeName: "Techmarkit",
-    image:
-      "https://payjustnow.com/wp-content/uploads/2026/02/SM-X133NZAAAFA-NEW_5000x.jpg",
+    href: "https://techmarkit.co.za/collections/on-promo/products/apple-ipad-9-7-5th-gen-wifi-cell-32gb-space-grey-5?variant=46412917276925",
+    image: "https://payjustnow.com/wp-content/uploads/2026/02/SM-X133NZAAAFA-NEW_5000x.jpg",
+    imageWidth: 800,
+    imageHeight: 800,
     logo: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_280282383_111196474922072_8576718013889758734_n_2_c38808dcee.jpg",
     dealPrefix: "Save",
     dealValue: "R300",
     expiry: "28/02/2026",
-    type: "Discount",
+    type: "discount",
+    typeLabel: "Discount",
   },
   {
-    title: "R350 OFF Flights!",
-    storeName: "Alternative Airlines",
-    image:
-      "https://payjustnow.com/wp-content/uploads/2025/10/Alternative-Airlines-background.png",
+    title: "R350 OFF Flights! Choose from 600+Airlines. T&C's apply",
+    href: "https://www.alternativeairlines.com/payjustnow?utm_medium=referral&utm_source=payjustnow&utm_campaign=deals",
+    image: "https://payjustnow.com/wp-content/uploads/2025/10/Alternative-Airlines-background.png",
+    imageWidth: 156,
+    imageHeight: 156,
     logo: "https://payjustnow.com/wp-content/uploads/2025/10/Alternative-Airlines-logo-new.png",
     dealPrefix: "Get",
     dealValue: "R350 OFF",
     expiry: "30/11/2025",
-    type: "Sale",
+    type: "sale",
+    typeLabel: "Sale",
   },
   {
     title: "Sign Up & Get 25% Off Your First Purchase",
-    storeName: "Jockey",
-    image:
-      "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_400x280_PX_3_3da52d6fec.jpg",
+    href: "https://jockey.co.za/#footer-signup",
+    image: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_400x280_PX_3_3da52d6fec.jpg",
+    imageWidth: 223,
+    imageHeight: 156,
     logo: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_500x500px_Jky_logo_b12234cf8e.png",
     dealPrefix: "Get",
     dealValue: "25% OFF",
     expiry: "30/11/2025",
-    type: "Discount",
+    type: "discount",
+    typeLabel: "Discount",
   },
 ];
 
-function CalendarIcon() {
+function DealExpiryIcon() {
   return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-      <line x1="16" y1="2" x2="16" y2="6" />
-      <line x1="8" y1="2" x2="8" y2="6" />
-      <line x1="3" y1="10" x2="21" y2="10" />
+    <svg className="deal-expiry-date-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.50516 5.44791C4.76551 5.70825 5.18762 5.70825 5.44797 5.44791C5.70832 5.18756 5.70832 4.76545 5.44797 4.5051C5.18762 4.24475 4.76551 4.24475 4.50516 4.5051C4.24481 4.76545 4.24481 5.18756 4.50516 5.44791Z" fill="#394D00"></path>
+      <path d="M2.61874 7.33359L2.61874 2.61954L7.33279 2.61954L14.4039 9.69061L9.68981 14.4047L2.61874 7.33359Z" stroke="#394D00" strokeWidth="1.25" strokeLinejoin="round"></path>
     </svg>
   );
 }
 
-function DealCard({ deal }: { deal: Deal }) {
-  return (
-    <Link
-      href="#"
-      className="group relative flex min-w-[280px] flex-col overflow-hidden rounded-2xl bg-gray-100 sm:min-w-[320px]"
-    >
-      <div className="relative h-[200px] w-full overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={deal.image}
-          alt={deal.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-        {/* Logo */}
-        <div className="absolute left-3 top-3">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={deal.logo}
-            alt={`${deal.storeName} logo`}
-            className="h-10 w-10 rounded-lg bg-white/90 p-1 object-contain backdrop-blur-sm"
-          />
-        </div>
-
-        {/* Deal text overlay */}
-        <div className="absolute bottom-3 left-3 right-3">
-          <p className="text-xs font-medium text-white/80">{deal.dealPrefix}</p>
-          <p className="text-3xl font-extrabold text-white leading-tight">
-            {deal.dealValue}
-          </p>
-        </div>
-      </div>
-
-      {/* Bottom meta */}
-      <div className="flex items-center justify-between bg-white p-4">
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1.5 text-xs text-gray-500">
-            <CalendarIcon />
-            {deal.expiry}
-          </span>
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${
-              deal.type === "Sale"
-                ? "bg-[#BDF500] text-black"
-                : "bg-[#0C5765] text-white"
-            }`}
-          >
-            {deal.type}
-          </span>
-        </div>
-      </div>
-
-      <div className="border-t border-gray-100 px-4 py-3">
-        <p className="text-sm font-semibold text-black">{deal.title}</p>
-      </div>
-    </Link>
-  );
-}
-
 export default function FeaturedDeals() {
-  const [activeDot, setActiveDot] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
-
-  const scrollToIndex = useCallback((index: number) => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const cardWidth = 320 + 20;
-    container.scrollTo({ left: index * cardWidth, behavior: "smooth" });
-  }, []);
-
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const cardWidth = 320 + 20;
-      const index = Math.round(container.scrollLeft / cardWidth);
-      setActiveDot(Math.min(index, deals.length - 1));
-    };
-
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section ref={sectionRef} className="bg-[#eff1f1] py-16 md:py-24">
-      <div className="site-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          {/* Heading */}
-          <div className="mb-8 flex items-center justify-between">
-            <h2 className="font-['Outfit'] text-3xl font-bold text-black md:text-4xl">
-              Deals
-            </h2>
-            <Link
-              href="#"
-              className="text-sm font-semibold text-[#0C5765] underline-offset-4 hover:underline"
-            >
-              View All
-            </Link>
+    <section className="section section-light section-featured-deals">
+      <div className="container">
+        <div className="s-inner">
+          <div className="s-content">
+            <div className="s-title-wrapper">
+              <h2 className="s-title">Deals</h2>
+              <a className="s-link" href="https://app.payjustnow.com/my-deals/all" target="_blank">
+                View All
+              </a>
+            </div>
           </div>
-
-          {/* Carousel */}
-          <div
-            ref={scrollRef}
-            className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 scrollbar-none md:overflow-visible md:pb-0 lg:grid lg:grid-cols-4 lg:gap-6"
-            style={{ scrollbarWidth: "none" }}
-          >
-            {deals.map((deal) => (
-              <DealCard key={deal.title} deal={deal} />
-            ))}
+        </div>
+      </div>
+      <div className="featured-deals-wrapper">
+        <div className="featured-deals glide">
+          <div data-glide-el="track" className="glide__track">
+            <div className="deals glide__slides" style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
+              {deals.map((deal) => (
+                <div key={deal.title} className="deal glide__slide">
+                  <a className="deal-link" href={deal.href} aria-label={deal.title} target="_blank"></a>
+                  <div className="deal-inner">
+                    <div className="deal-media">
+                      <div className="deal-image">
+                        <figure className="media-wrapper image-wrapper responsive">
+                          <span className="media-inner image-inner">
+                            <img width={deal.imageWidth} height={deal.imageHeight} className="media image" alt={deal.title} src={deal.image} />
+                          </span>
+                        </figure>
+                      </div>
+                      <div className="deal-logo">
+                        <figure className="media-wrapper image-wrapper">
+                          <span className="media-inner image-inner">
+                            <img width="156" height="156" className="media image" alt={deal.title} src={deal.logo} />
+                          </span>
+                        </figure>
+                      </div>
+                      <div className="deal-text">
+                        <span className="deal-text-small">{deal.dealPrefix}</span>
+                        <span className="deal-text-large">{deal.dealValue}</span>
+                      </div>
+                    </div>
+                    <div className="deal-meta">
+                      <div className="deal-expiry-date">
+                        <DealExpiryIcon />
+                        <span className="deal-expiry-date-text">{deal.expiry}</span>
+                      </div>
+                      <span className={`deal-type ${deal.type}`}>{deal.typeLabel}</span>
+                    </div>
+                    <h6 className="deal-title">{deal.title}</h6>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-
-          {/* Dot indicators */}
-          <div className="mt-6 flex items-center justify-center gap-2 lg:hidden">
+          <div className="glide__bullets" data-glide-el="controls[nav]">
             {deals.map((deal, index) => (
-              <button
-                key={deal.title}
-                onClick={() => scrollToIndex(index)}
-                className={`h-2.5 rounded-full transition-all duration-200 ${
-                  activeDot === index
-                    ? "w-8 bg-[#BDF500]"
-                    : "w-2.5 bg-gray-300"
-                }`}
-                aria-label={`Go to deal ${index + 1}`}
-              />
+              <button key={deal.title} className={`glide__bullet${index === activeIndex ? " glide__bullet--active" : ""}`} data-glide-dir={`=${index}`} onClick={() => setActiveIndex(index)} aria-label={`Show deal ${index + 1}`}></button>
             ))}
           </div>
-        </motion.div>
-
-        {/* CTA Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 overflow-hidden rounded-2xl bg-[#f6f8f2]"
-        >
-          <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:justify-between md:p-10">
-            <div className="text-center md:text-left">
-              <h3 className="font-['Outfit'] text-2xl font-bold text-black md:text-3xl">
-                Sign up for Exclusive Deals
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">
-                Be the first to know about our latest offers and discounts.
-              </p>
-              <Link
-                href="#"
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-[#BDF500] px-8 py-3.5 text-sm font-semibold text-black transition-transform hover:scale-105"
-              >
-                Sign up
-              </Link>
-            </div>
-            <div className="relative h-[200px] w-full max-w-[400px] shrink-0 overflow-hidden rounded-xl md:h-[240px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://payjustnow.com/wp-content/uploads/2025/04/Card-4-1.jpg"
-                alt="Exclusive deals"
-                className="h-full w-full object-cover"
-              />
+          <div className="deals-cta">
+            <a className="deals-cta-link" href="https://app.payjustnow.com/login" target="_blank"></a>
+            <div className="deals-cta-inner">
+              <div className="deals-cta-media">
+                <div className="deals-cta-text">
+                  <span className="deals-cta-text-small">Sign up for</span>
+                  <span className="deals-cta-text-large">Exclusive Deals</span>
+                </div>
+                <div className="deals-cta-image">
+                  <figure className="media-wrapper image-wrapper responsive">
+                    <span className="media-inner image-inner">
+                      <img width="667" height="559" className="media image" alt="" src="https://payjustnow.com/wp-content/uploads/2025/04/Card-4-1.jpg" />
+                    </span>
+                  </figure>
+                </div>
+              </div>
+              <div className="deals-cta-title-wrapper">
+                <div className="circle-fill"></div>
+                <h4 className="deals-cta-title">
+                  <span className="deals-cta-title-text split-line">
+                    <span className="line line-normal">Sign up</span>
+                    <span className="line line-hover">Sign up</span>
+                  </span>
+                </h4>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

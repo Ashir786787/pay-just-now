@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FormEvent } from "react";
 
-export default function BlogHero() {
+export default function BlogHero({ title = "Our Press", description = "Tips, advice, news and more to run and grow your business." }: { title?: string; description?: string }) {
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -19,10 +19,10 @@ export default function BlogHero() {
             className="max-w-xl"
           >
             <h1 className="font-['Outfit'] text-4xl font-bold leading-tight text-black md:text-5xl">
-              Our Press
+              {title}
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-gray-500 md:text-xl">
-              Tips, advice, news and more to run and grow your business.
+              {description}
             </p>
           </motion.div>
 

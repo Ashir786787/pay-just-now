@@ -1,4 +1,4 @@
-import { BlogPost } from "./blog-data";
+import { BlogPost, postHref } from "./blog-data";
 
 export function CategoryChips({ categories }: { categories: string[] }) {
   return (
@@ -43,7 +43,7 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-[#f0f0f0] bg-white transition-shadow duration-300 hover:shadow-lg">
       {post.image && (
-        <a href="#" className="relative block aspect-[4/3] overflow-hidden">
+        <a href={postHref(post.title)} className="relative block aspect-[4/3] overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={post.image}
@@ -56,8 +56,8 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
 
       <div className="flex flex-1 flex-col gap-3 p-5">
         <CategoryChips categories={post.categories} />
-        <h3 className="font-['Outfit'] text-lg font-bold leading-snug text-black">
-          <a href="#" className="transition-colors hover:text-[#0C5765]">
+        <h3 id={postHref(post.title).slice(6)} className="font-['Outfit'] text-lg font-bold leading-snug text-black">
+          <a href={postHref(post.title)} className="transition-colors hover:text-[#0C5765]">
             {post.title}
           </a>
         </h3>

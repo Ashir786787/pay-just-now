@@ -1,121 +1,92 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { PjnLogo } from "@/components/icons/PjnLogo";
 import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TiktokIcon,
-  YoutubeIcon,
-} from "@/components/icons/Icons";
+  WeaverLogo,
+  LinkedInSocial,
+  TiktokSocial,
+  FacebookSocial,
+  InstagramSocial,
+} from "@/components/icons/PjnBrandIcons";
 
-const footerSections = [
-  {
-    title: "About Us",
-    links: [
-      { label: "Press", href: "/press" },
-      { label: "Content Hub", href: "/content-hub" },
-      { label: "Careers", href: "#" },
-      { label: "Terms & Conditions", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-    ],
-  },
-  {
-    title: "Shopper",
-    links: [
-      { label: "How it Works", href: "/payin3" },
-      { label: "Pay in 3", href: "/payin3" },
-      { label: "Pay in 12", href: "/payin12" },
-      { label: "Support", href: "/support" },
-      { label: "FAQs", href: "/support#faq" },
-    ],
-  },
-  {
-    title: "Contact Us",
-    links: [
-      { label: "Shoppers", href: "/support#contact" },
-      { label: "Press Office", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Other Queries", href: "#" },
-    ],
-  },
+const menus = [
+  { title: "Shopper", items: ["How It Works", "FAQs", "Press", "Help"] },
+  { title: "Business", items: ["BNPL", "Retail Credit", "Marketing Solutions", "Business Support", "Request a Demo"] },
+  { title: "Resources", items: ["Merchant Portal", "PayUp", "Operational Status", "PAIA Manual", "Whistle Blowing"] },
 ];
 
-const socialLinks = [
-  { icon: FacebookIcon, href: "#", label: "Facebook" },
-  { icon: InstagramIcon, href: "#", label: "Instagram" },
-  { icon: LinkedInIcon, href: "#", label: "LinkedIn" },
-  { icon: TiktokIcon, href: "#", label: "TikTok" },
-  { icon: YoutubeIcon, href: "#", label: "YouTube" },
+const localLinks: Record<string, string> = {
+  "How It Works": "/payin3",
+  FAQs: "/support#faq",
+  Press: "/press",
+  Help: "/support",
+};
+
+const socials = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/payjustnow/", Icon: LinkedInSocial },
+  { label: "TikTok", href: "https://www.tiktok.com/@payjustnow", Icon: TiktokSocial },
+  { label: "Facebook", href: "https://www.facebook.com/PayJustNow", Icon: FacebookSocial },
+  { label: "Instagram", href: "https://www.instagram.com/payjustnow/", Icon: InstagramSocial },
 ];
 
 export default function Footer() {
+  const [openMenu, setOpenMenu] = useState<number | null>(null);
+  const [contactOpen, setContactOpen] = useState(false);
+
   return (
-    <footer className="bg-surface text-white">
-      <div className="site-container py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-gray-300">
-                {section.title}
-              </h3>
-              <ul className="space-y-2.5">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+    <footer className="footer footer-clone">
+      <div className="footer-clone-inner">
+        <div className="footer-clone-top">
+          <div className="footer-clone-menus">
+            {menus.map((menu, index) => (
+              <nav key={menu.title} className={`footer-clone-menu${openMenu === index ? " is-open" : ""}`}>
+                <button type="button" className="footer-clone-heading" onClick={() => setOpenMenu(openMenu === index ? null : index)}>
+                  {menu.title}
+                  <span className="footer-clone-plus" aria-hidden="true">+</span>
+                </button>
+                <ul>
+                  {menu.items.map((item) => (
+                    <li key={item}>
+                      {localLinks[item] ? <Link href={localLinks[item]}>{item}</Link> : <span>{item}</span>}
+                      {item === "Operational Status" ? <small>Major</small> : null}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
+          <div className="footer-clone-side">
+            <section className={`footer-clone-contact${contactOpen ? " is-open" : ""}`}>
+              <button type="button" className="footer-clone-heading" onClick={() => setContactOpen(!contactOpen)}>
+                Contact us
+                <span className="footer-clone-plus" aria-hidden="true">+</span>
+              </button>
+              <div className="footer-clone-actions">
+                <button type="button" className="footer-clone-action footer-clone-action-dark">Chatbot</button>
+                <a className="footer-clone-action" href="mailto:hello@payjustnow.com">Email Us</a>
+              </div>
+            </section>
+            <section className="footer-clone-weaver"><WeaverLogo /></section>
+          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="text-gray-400 hover:text-primary transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-6 text-xs text-gray-500">
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Terms & Conditions
-              </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Cookie Policy
-              </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Pre-Store Credit T&Cs
-              </Link>
-            </div>
+        <div className="footer-clone-bottom">
+          <Link className="footer-clone-logo" href="/" aria-label="Home"><PjnLogo /></Link>
+          <div className="footer-clone-socials">
+            {socials.map(({ label, href, Icon }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="footer-clone-social">
+                <Icon />
+                <span>{label}</span>
+              </a>
+            ))}
           </div>
+        </div>
 
-          <p className="text-xs text-gray-500 mt-6 text-center md:text-left max-w-3xl">
-            PayJustNow (Pty) Ltd is an authorized Financial Services (FSP97452) and
-            Credit Provider (NCRCP12680) in compliance with the National Credit Act
-            and registered with the Information Regulator under the Protection of
-            Personal Information Act (POPIA).
-          </p>
-
-          <p className="text-xs text-gray-500 mt-4 text-center md:text-left">
-            © {new Date().getFullYear()} PayJustNow (Pty) Ltd. All rights reserved.
-          </p>
+        <div className="footer-clone-legal">
+          <span>© PayJustNow 2026. All Rights Reserved.</span>
+          <div><span>Terms and Conditions</span><span>Privacy Policy</span><span>PCI DSS Policy</span></div>
         </div>
       </div>
     </footer>
