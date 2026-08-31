@@ -7661,3 +7661,9 @@ h6 {
     max-width: 240px;
   }
 }
+
+@media (max-width: 1099px) {
+  .nav-active .header .header-main {
+    background: #fff;
+  }
+}
