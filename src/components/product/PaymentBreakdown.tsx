@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 interface PaymentBreakdownProps {
   defaultTab: "payin3" | "payin12";
@@ -27,94 +26,100 @@ const payin12Items = [
   "Perfect when you're making a big buy and want lighter monthly payments.",
 ];
 
-export default function PaymentBreakdown({ defaultTab }: PaymentBreakdownProps) {
-  const [activeTab, setActiveTab] = useState<"payin3" | "payin12">(defaultTab);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+function TabIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" />
+    </svg>
+  );
+}
 
-  const items = activeTab === "payin3" ? payin3Items : payin12Items;
+export default function PaymentBreakdown({
+  defaultTab,
+}: PaymentBreakdownProps) {
+  const [activeTab, setActiveTab] = useState<"payin3" | "payin12">(defaultTab);
+
+  const tabs: { id: "payin3" | "payin12"; label: string }[] = [
+    { id: "payin3", label: "Pay in 3" },
+    { id: "payin12", label: "Pay in 12" },
+  ];
 
   return (
-    <section ref={sectionRef} className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-5 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center"
-        >
-          <h2 className="font-['Outfit'] text-3xl font-bold text-gray-900 md:text-4xl">
-            Clever Payment Breakdown
-          </h2>
-        </motion.div>
+    <section className="section section-payment-breakdown section-light">
+      <div className="container-sm">
+        <h2 className="s-title">Clever Payment Breakdown</h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-          className="mt-10 flex justify-center gap-3"
-        >
-          <button
-            onClick={() => setActiveTab("payin3")}
-            className={`rounded-full px-6 py-3 text-sm font-semibold transition-all ${
-              activeTab === "payin3"
-                ? "bg-[#BDF500] text-black shadow-sm"
-                : "border border-gray-300 text-gray-600 hover:border-gray-400"
-            }`}
-          >
-            Pay in 3
-          </button>
-          <button
-            onClick={() => setActiveTab("payin12")}
-            className={`rounded-full px-6 py-3 text-sm font-semibold transition-all ${
-              activeTab === "payin12"
-                ? "bg-[#BDF500] text-black shadow-sm"
-                : "border border-gray-300 text-gray-600 hover:border-gray-400"
-            }`}
-          >
-            Pay in 12
-          </button>
-        </motion.div>
+        <div className="tabs payment-breakdown-tabs">
+          <div className="tabs-nav mobile-only">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                className={`tabs-nav-item${activeTab === tab.id ? " active" : ""}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                <TabIcon />
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
 
-        <div className="mt-12">
-          <AnimatePresence mode="wait">
-            <motion.ul
-              key={activeTab}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="flex flex-col gap-5"
-            >
-              {items.map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-start gap-4 rounded-xl bg-gray-50 px-6 py-5"
-                >
-                  <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#BDF500]">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="black"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </span>
-                  <span className="text-base leading-relaxed text-gray-700">
-                    {item}
-                  </span>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </AnimatePresence>
+          <div className="tabs-content mobile-only">
+            {tabs.map((tab) => (
+              <div
+                key={tab.id}
+                className={`tab${activeTab === tab.id ? " active" : ""}`}
+              >
+                <div className="payment-option">
+                  <div className="payment-option-content">
+                    <ul className="payment-features">
+                      {(tab.id === "payin3" ? payin3Items : payin12Items).map(
+                        (item, i) => (
+                          <li key={i}>{item}</li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="payment-options-desktop desktop-only">
+            <div className={`payment-card payin3-card${activeTab === "payin3" ? " active" : ""}`}>
+              <div className="payment-card-header">
+                Pay in 3
+              </div>
+              <div className="payment-card-content">
+                <ul>
+                  {payin3Items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className={`payment-card payin12-card${activeTab === "payin12" ? " active" : ""}`}>
+              <div className="payment-card-header">
+                Pay in 12
+              </div>
+              <div className="payment-card-content">
+                <ul>
+                  {payin12Items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

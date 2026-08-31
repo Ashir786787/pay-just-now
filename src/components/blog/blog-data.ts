@@ -70,14 +70,6 @@ export const categories: BlogCategory[] = [
   },
 ];
 
-export const categoryNameById: Record<string, string> = categories.reduce(
-  (acc, category) => {
-    acc[category.id] = category.label;
-    return acc;
-  },
-  {} as Record<string, string>
-);
-
 export const featuredPost: BlogPost = {
   title: "5 Clever Ways to Shop Smarter with PayJustNow’s Pay in 3",
   categories: ["Misc"],

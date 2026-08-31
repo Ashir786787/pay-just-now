@@ -25,10 +25,10 @@ const localLinks: Record<string, string> = {
 };
 
 const socials = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/payjustnow/", Icon: LinkedInSocial },
-  { label: "TikTok", href: "https://www.tiktok.com/@payjustnow", Icon: TiktokSocial },
-  { label: "Facebook", href: "https://www.facebook.com/PayJustNow", Icon: FacebookSocial },
-  { label: "Instagram", href: "https://www.instagram.com/payjustnow/", Icon: InstagramSocial },
+  { label: "LinkedIn", href: "#", Icon: LinkedInSocial },
+  { label: "TikTok", href: "#", Icon: TiktokSocial },
+  { label: "Facebook", href: "#", Icon: FacebookSocial },
+  { label: "Instagram", href: "#", Icon: InstagramSocial },
 ];
 
 export default function Footer() {
@@ -76,7 +76,7 @@ export default function Footer() {
           <Link className="footer-clone-logo" href="/" aria-label="Home"><PjnLogo /></Link>
           <div className="footer-clone-socials">
             {socials.map(({ label, href, Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="footer-clone-social">
+              <a key={label} href={href} className="footer-clone-social">
                 <Icon />
                 <span>{label}</span>
               </a>

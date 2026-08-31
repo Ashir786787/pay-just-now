@@ -1,5 +1,3 @@
-// Generated from pjn-capture svg-*.xml extraction.
-
 export function WeaverLogo({ className = '' }: { className?: string }) {
   return (
     <svg className={className || undefined} width="187" height="90" viewBox="0 0 187 90" fill="none" xmlns="http://www.w3.org/2000/svg">

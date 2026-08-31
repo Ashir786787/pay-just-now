@@ -51,6 +51,7 @@ const videos = [
     thumbnail:
       "https://payjustnow.com/wp-content/uploads/2025/12/Screenshot-2025-12-09-at-08.49.jpg",
     embedUrl: "https://www.youtube.com/embed/WwMPyuUGv9Y",
+    categories: ["Misc"],
   },
   {
     title: "PayJustNow. The Clever Way",
@@ -58,6 +59,7 @@ const videos = [
       "https://payjustnow.com/wp-content/uploads/2025/10/PayJustNow.-The-Clever-Way.png",
     embedUrl: "https://www.youtube.com/embed/8ka1HemFuaQ",
     duration: "1min",
+    categories: ["How it works", "Misc"],
   },
   {
     title: "How To Sign Up",
@@ -65,6 +67,7 @@ const videos = [
       "https://payjustnow.com/wp-content/uploads/2025/10/how-to-sign-up.jpg",
     embedUrl: "https://www.youtube.com/embed/fHDb1xdEW3g",
     duration: "2min",
+    categories: ["Finance", "How it works"],
   },
 ];
 
@@ -195,7 +198,7 @@ const aboutOptions = [
     mobileImage:
       "https://payjustnow.com/wp-content/uploads/2025/10/Pay-in-3-mobile-1.svg",
     link: "#",
-    bgColor: "#273500",
+    variant: "surface_green",
   },
   {
     title: "MobiMoney",
@@ -205,23 +208,23 @@ const aboutOptions = [
     mobileImage:
       "https://payjustnow.com/wp-content/uploads/2025/10/FC-mobimoney-mobile.svg",
     link: "#",
-    bgColor: "#0C5765",
+    variant: "cool_blue",
   },
 ];
 
 export default function PayIn12Page() {
   return (
-    <div className="pt-[146px] lg:pt-[152px]">
+    <div id="product">
       <ProductHero
-        title="Pay in"
-        titleHighlight="12"
+        title="Pay in 12"
         subtitle="Smaller payments. More time. A little interest. Perfect for furniture, appliances, or that dream upgrade - without the one-off wallop."
         heroImage="https://payjustnow.com/wp-content/uploads/2025/10/12-Payments-Hero.svg"
-        showCta
+        variant="payin12"
       />
       <HowItWorks
         steps={howItWorksSteps}
         subtitle="Own it now. Pay it over time (with a little interest). That's one clever flex."
+        columns={2}
       />
       <BenefitsMarquee title="Your Pay in 12 Perks" benefits={benefits} />
       <VideoSection videos={videos} />

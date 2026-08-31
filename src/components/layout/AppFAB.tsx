@@ -6,7 +6,6 @@ import {
   AppGalleryIcon,
   GooglePlayIcon,
 } from "@/components/icons/PjnBrandIcons";
-
 export default function AppFAB() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -39,26 +38,20 @@ export default function AppFAB() {
       </div>
       <div className="app-icons">
         <a
-          href="https://apps.apple.com/za/app/payjustnow/id1542974651"
+          href="#"
           className="app-icon"
-          target="_blank"
-          rel="noopener"
         >
           <AppleIcon />
         </a>
         <a
-          href="https://appgallery.huawei.com/app/C103873181"
+          href="#"
           className="app-icon"
-          target="_blank"
-          rel="noopener"
         >
           <AppGalleryIcon />
         </a>
         <a
-          href="https://play.google.com/store/apps/details?id=com.payjustnow"
+          href="#"
           className="app-icon"
-          target="_blank"
-          rel="noopener"
         >
           <GooglePlayIcon />
         </a>

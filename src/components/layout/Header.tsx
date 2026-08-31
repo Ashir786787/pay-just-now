@@ -21,7 +21,7 @@ const NAV = [
     href: "/support",
     children: [
       { label: "Help", href: "/support" },
-      { label: "Operational Status", href: "https://status.payjustnow.com/", external: true },
+      { label: "Operational Status", href: "/support" },
     ],
   },
 ];
@@ -130,8 +130,7 @@ export default function Header() {
                   isParent &&
                   item.children!.some(
                     (child) =>
-                      !child.external &&
-                      (pathname === child.href || pathname.startsWith(child.href + "/"))
+                      pathname === child.href || pathname.startsWith(child.href + "/")
                   );
                 const itemActive = !isParent && pathname === item.href;
 
@@ -167,19 +166,13 @@ export default function Header() {
                           <div className="sub-menu-bg" aria-hidden="true"></div>
                           <ul className="sub-menu">
                             {item.children.map((child) => {
-                              const childActive = !child.external && pathname === child.href;
+                              const childActive = pathname === child.href;
                               const childClass = `menu-item${childActive ? " current-menu-item" : ""}`;
                               return (
                                 <li key={child.label} className={childClass}>
-                                  {child.external ? (
-                                    <a href={child.href} target="_blank" rel="noopener noreferrer">
-                                      <SplitText label={child.label} />
-                                    </a>
-                                  ) : (
-                                    <Link href={child.href}>
-                                      <SplitText label={child.label} />
-                                    </Link>
-                                  )}
+                                  <Link href={child.href}>
+                                    <SplitText label={child.label} />
+                                  </Link>
                                 </li>
                               );
                             })}

@@ -5,7 +5,7 @@ import PostsGrid from "@/components/blog/PostsGrid";
 
 export default function ContentHubPage() {
   return (
-    <div className="pt-[146px] lg:pt-[152px]">
+    <div id="blog">
       <BlogHero title="Content Hub" description="Tips, tricks and insights to help you shop smarter." />
       <PopularPosts />
       <CategoryExplore />

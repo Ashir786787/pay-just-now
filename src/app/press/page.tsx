@@ -5,7 +5,7 @@ import PostsGrid from "@/components/blog/PostsGrid";
 
 export default function PressPage() {
   return (
-    <div className="pt-[146px] lg:pt-[152px]">
+    <div id="blog">
       <BlogHero />
       <PopularPosts />
       <CategoryExplore />

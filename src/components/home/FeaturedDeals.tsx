@@ -19,7 +19,7 @@ interface Deal {
 const deals: Deal[] = [
   {
     title: "Save Up To 35% on Selected Clothing",
-    href: "https://monosimovements.co.za/collections/new-arrivals/new?utm_medium=app&utm_source=pjn&utm_campaign=monosiaug2024",
+    href: "#",
     image: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_Thumbnail_1_10_e60d732d2c.png",
     imageWidth: 223,
     imageHeight: 156,
@@ -32,7 +32,7 @@ const deals: Deal[] = [
   },
   {
     title: "Apple iPad 9.7 - Now R1099!",
-    href: "https://techmarkit.co.za/collections/on-promo/products/apple-ipad-9-7-5th-gen-wifi-cell-32gb-space-grey-5?variant=46412917276925",
+    href: "#",
     image: "https://payjustnow.com/wp-content/uploads/2026/02/SM-X133NZAAAFA-NEW_5000x.jpg",
     imageWidth: 800,
     imageHeight: 800,
@@ -45,7 +45,7 @@ const deals: Deal[] = [
   },
   {
     title: "R350 OFF Flights! Choose from 600+Airlines. T&C's apply",
-    href: "https://www.alternativeairlines.com/payjustnow?utm_medium=referral&utm_source=payjustnow&utm_campaign=deals",
+    href: "#",
     image: "https://payjustnow.com/wp-content/uploads/2025/10/Alternative-Airlines-background.png",
     imageWidth: 156,
     imageHeight: 156,
@@ -58,7 +58,7 @@ const deals: Deal[] = [
   },
   {
     title: "Sign Up & Get 25% Off Your First Purchase",
-    href: "https://jockey.co.za/#footer-signup",
+    href: "#",
     image: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_400x280_PX_3_3da52d6fec.jpg",
     imageWidth: 223,
     imageHeight: 156,
@@ -103,7 +103,7 @@ export default function FeaturedDeals() {
             <div className="deals glide__slides" style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
               {deals.map((deal) => (
                 <div key={deal.title} className="deal glide__slide">
-                  <a className="deal-link" href={deal.href} aria-label={deal.title} target="_blank"></a>
+                  <a className="deal-link" href={deal.href} aria-label={deal.title}></a>
                   <div className="deal-inner">
                     <div className="deal-media">
                       <div className="deal-image">
@@ -162,10 +162,7 @@ export default function FeaturedDeals() {
               <div className="deals-cta-title-wrapper">
                 <div className="circle-fill"></div>
                 <h4 className="deals-cta-title">
-                  <span className="deals-cta-title-text split-line">
-                    <span className="line line-normal">Sign up</span>
-                    <span className="line line-hover">Sign up</span>
-                  </span>
+                  <span className="deals-cta-title-text split-line">Sign up</span>
                 </h4>
               </div>
             </div>

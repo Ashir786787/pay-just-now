@@ -61,6 +61,7 @@ const videos = [
     thumbnail:
       "https://payjustnow.com/wp-content/uploads/2025/12/Screenshot-2025-12-09-at-08.49.jpg",
     embedUrl: "https://www.youtube.com/embed/WwMPyuUGv9Y",
+    categories: ["Misc"],
   },
   {
     title: "PayJustNow. The Clever Way",
@@ -68,6 +69,7 @@ const videos = [
       "https://payjustnow.com/wp-content/uploads/2025/10/PayJustNow.-The-Clever-Way.png",
     embedUrl: "https://www.youtube.com/embed/8ka1HemFuaQ",
     duration: "1min",
+    categories: ["How it works", "Misc"],
   },
   {
     title: "How To Sign Up",
@@ -75,6 +77,7 @@ const videos = [
       "https://payjustnow.com/wp-content/uploads/2025/10/how-to-sign-up.jpg",
     embedUrl: "https://www.youtube.com/embed/fHDb1xdEW3g",
     duration: "2min",
+    categories: ["Finance", "How it works"],
   },
 ];
 
@@ -181,7 +184,7 @@ const aboutOptions = [
     mobileImage:
       "https://payjustnow.com/wp-content/uploads/2025/10/Pay-in-12-mobile.svg",
     link: "#",
-    bgColor: "#273500",
+    variant: "surface_green",
   },
   {
     title: "MobiMoney",
@@ -191,23 +194,23 @@ const aboutOptions = [
     mobileImage:
       "https://payjustnow.com/wp-content/uploads/2025/10/FC-mobimoney-mobile.svg",
     link: "#",
-    bgColor: "#0C5765",
+    variant: "cool_blue",
   },
 ];
 
 export default function PayIn3Page() {
   return (
-    <div className="pt-[146px] lg:pt-[152px]">
+    <div id="product">
       <ProductHero
-        title="Pay in"
-        titleHighlight="3"
+        title="Pay in 3"
         subtitle="0% interest. 3 payments. Tap into all your favourite brands - easy. Get instant approval and own your checkout."
         heroImage="https://payjustnow.com/wp-content/uploads/2025/10/3-Payments-Hero.svg"
-        showCta
+        variant="payin3"
       />
       <HowItWorks
         steps={howItWorksSteps}
         subtitle="Control without the crunch. That's the Clever Way to Pay."
+        columns={3}
       />
       <BenefitsMarquee title="Your Pay in 3 Perks" benefits={benefits} />
       <VideoSection videos={videos} />

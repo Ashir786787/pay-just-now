@@ -1,12 +1,10 @@
-import Link from "next/link";
-
 interface OptionCard {
   title: string;
   description: string;
   image: string;
   mobileImage?: string;
   link: string;
-  bgColor: string;
+  variant: string;
 }
 
 interface AboutOptionsProps {
@@ -15,55 +13,59 @@ interface AboutOptionsProps {
 
 export default function AboutOptions({ options }: AboutOptionsProps) {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="site-container">
-        <h2 className="font-['Outfit'] text-3xl font-bold text-gray-900 md:text-4xl text-center">
-          Clever is about options
-        </h2>
-
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+    <section className="section section-lightest section-about-options">
+      <div className="container">
+        <div className="s-inner">
+          <div className="s-title-wrapper">
+            <h2 className="s-title">Clever is about options</h2>
+          </div>
+        </div>
+        <div className="content-grid content-grid-light content-grid-two">
           {options.map((option, index) => (
-            <div
-              key={index}
-              className="flex flex-col overflow-hidden rounded-2xl"
-              style={{ backgroundColor: option.bgColor }}
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                {option.mobileImage ? (
-                  <picture>
-                    <source
-                      media="(max-width: 768px)"
-                      srcSet={option.mobileImage}
-                    />
-                    <img
-                      src={option.image}
-                      alt={option.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </picture>
-                ) : (
-                  <img
-                    src={option.image}
-                    alt={option.title}
-                    className="h-full w-full object-cover"
-                  />
+            <div className="cg-col" key={index}>
+              <div
+                className={`image-wrapper cg-item cg-item-content ${option.variant}`}
+              >
+                <div className="s-media desktop-only">
+                  <figure className="media-wrapper image-wrapper">
+                    <span className="media-inner image-inner">
+                      <img
+                        width="600"
+                        height="400"
+                        className="media image"
+                        alt={option.title}
+                        src={option.image}
+                      />
+                    </span>
+                  </figure>
+                </div>
+                {option.mobileImage && (
+                  <div className="s-media mobile-only">
+                    <figure className="media-wrapper image-wrapper">
+                      <span className="media-inner image-inner">
+                        <img
+                          width="600"
+                          height="700"
+                          className="media image"
+                          alt={option.title}
+                          src={option.mobileImage}
+                        />
+                      </span>
+                    </figure>
+                  </div>
                 )}
               </div>
-
-              <div className="flex flex-col gap-4 p-6 md:p-8">
-                <h3 className="font-['Outfit'] text-xl font-bold text-white md:text-2xl">
-                  {option.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/80 md:text-base">
-                  {option.description}
-                </p>
-                <div>
-                  <Link
-                    href={option.link}
-                    className="inline-flex items-center justify-center rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
-                  >
-                    More Information
-                  </Link>
+              <div className="cg-item cg-item-content">
+                <h3 className="cg-title">{option.title}</h3>
+                <p className="cg-text">{option.description}</p>
+                <div className="s-buttons">
+                  <a href={option.link} className="btn btn-primary btn-md">
+                    <span className="btn-fill"></span>
+                    <span className="btn-text">
+                      <span className="line line-normal">More Information</span>
+                      <span className="line line-hover">More Information</span>
+                    </span>
+                  </a>
                 </div>
               </div>
             </div>

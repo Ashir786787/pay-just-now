@@ -1,5 +1,3 @@
-"use client";
-
 interface Benefit {
   icon: string;
   text: string;
@@ -14,31 +12,29 @@ export default function BenefitsMarquee({
   title,
   benefits,
 }: BenefitsMarqueeProps) {
-  const duplicatedBenefits = [...benefits, ...benefits];
+  const duplicated = [...benefits, ...benefits];
 
   return (
-    <section className="bg-primary py-16 overflow-hidden">
-      <div className="site-container text-center mb-10">
-        <h2 className="font-['Outfit'] text-3xl md:text-4xl font-bold text-surface">
-          {title}
-        </h2>
+    <section className="section section-benefits">
+      <div className="container">
+        <h2 className="s-title s-title-alt">{title}</h2>
       </div>
-
-      <div className="relative">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {duplicatedBenefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 mx-3 shrink-0"
-            >
-              <img
-                src={benefit.icon}
-                alt=""
-                className="w-6 h-6 object-contain"
-              />
-              <span className="text-surface font-medium text-sm whitespace-nowrap">
-                {benefit.text}
-              </span>
+      <div className="carousel carousel-benefits">
+        <div className="carousel-track">
+          {duplicated.map((benefit, index) => (
+            <div className="carousel-item" key={index}>
+              <figure className="media-wrapper image-wrapper">
+                <span className="media-inner image-inner">
+                  <img
+                    width="24"
+                    height="24"
+                    className="media image"
+                    alt=""
+                    src={benefit.icon}
+                  />
+                </span>
+              </figure>
+              <span className="carousel-item-text">{benefit.text}</span>
             </div>
           ))}
         </div>

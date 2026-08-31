@@ -9,15 +9,17 @@ import {
   GooglePlayIcon,
 } from "@/components/icons/PjnBrandIcons";
 
-export default function GetTheApp() {
+export default function SupportHelpCard() {
   return (
-    <section className="section section-download section-lighter section-light section-pad-top">
+    <section className="section section-pad-bottom section-support-help">
       <div className="container">
         <div className="s-inner">
           <div className="s-content">
             <div className="s-content-top">
               <h2 className="s-title">Get the App</h2>
-              <p className="s-text">Download the PayJustNow app to start shopping.</p>
+              <p className="s-text">
+                Download the PayJustNow app to start shopping.
+              </p>
             </div>
             <div className="s-content-bottom">
               <div className="s-buttons">
@@ -31,13 +33,20 @@ export default function GetTheApp() {
                   <GooglePlayButton />
                 </a>
               </div>
-              <p className="disclaimer">Disclaimer: A PayJustNow profile must be created to activate the app.</p>
+              <p className="disclaimer">
+                Disclaimer: A PayJustNow profile must be created to activate
+                the app.
+              </p>
             </div>
           </div>
           <div className="s-media">
             <div className="download-app">
               <div className="app-qr-wrapper desktop-only">
-                <img className="app-qr" src="https://payjustnow.com/wp-content/uploads/2025/04/Group-13080-1.svg" alt="app-qr" />
+                <img
+                  className="app-qr"
+                  src="https://payjustnow.com/wp-content/uploads/2025/04/Group-13080-1.svg"
+                  alt="app-qr"
+                />
               </div>
               <div className="app-links-wrapper">
                 <ul className="app-links-list">
@@ -65,7 +74,13 @@ export default function GetTheApp() {
             </div>
             <figure className="media-wrapper image-wrapper responsive">
               <span className="media-inner image-inner">
-                <img width="783" height="901" className="media image" alt="" src="https://payjustnow.com/wp-content/uploads/2025/04/image-12-1.jpg" />
+                <img
+                  width="783"
+                  height="901"
+                  className="media image"
+                  alt=""
+                  src="https://payjustnow.com/wp-content/uploads/2025/04/image-12-1.jpg"
+                />
               </span>
             </figure>
           </div>
