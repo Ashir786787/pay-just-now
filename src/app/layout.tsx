@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Anton, Manrope, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html

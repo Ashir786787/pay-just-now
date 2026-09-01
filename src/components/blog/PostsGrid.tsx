@@ -61,7 +61,7 @@ export default function PostsGrid() {
       : blogPosts.filter((post) => post.categories.includes(filter));
 
   return (
-    <section className="section blog-section section-lightest" id="posts">
+    <section className="section section-light section-posts" id="posts">
       <div className="container">
         <div className="blog-filter-bar">
           <h2 className="s-title">All Posts</h2>

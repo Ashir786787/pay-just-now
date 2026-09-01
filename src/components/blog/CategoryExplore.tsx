@@ -3,7 +3,7 @@ import { categories } from "./blog-data";
 
 export default function CategoryExplore() {
   return (
-    <section className="section blog-section section-light">
+    <section className="section section-light section-categories">
       <div className="container">
         <div className="blog-header">
           <h2 className="s-title">Explore by Category</h2>

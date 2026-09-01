@@ -60,7 +60,7 @@ function PopularPostItem({ post }: { post: BlogPost }) {
 
 export default function PopularPosts() {
   return (
-    <section className="section blog-section section-lightest">
+    <section className="section section-light section-popular">
       <div className="container">
         <div className="blog-header">
           <h2 className="s-title">Most Popular</h2>

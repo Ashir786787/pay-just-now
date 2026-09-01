@@ -14,7 +14,7 @@ export default function BlogHero({
   };
 
   return (
-    <section className="section section-light section-hero">
+    <section className="section section-light section-blog-hero">
       <div className="container">
         <div className="s-inner">
           <div className="s-content">

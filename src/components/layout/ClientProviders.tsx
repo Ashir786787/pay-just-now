@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import PageLoader from "@/components/ui/PageLoader";
 import { AnimatePresence } from "framer-motion";
 
-export default function ClientProviders({ children }: { children: React.ReactNode }) {
+export default function ClientProviders({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
   const mounted = useRef(false);
