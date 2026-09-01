@@ -22,6 +22,7 @@ const localLinks: Record<string, string> = {
   FAQs: "/support#faq",
   Press: "/press",
   Help: "/support",
+  "Operational Status": "/status",
 };
 
 const socials = [

@@ -197,7 +197,7 @@ const aboutOptions = [
     image: "https://payjustnow.com/wp-content/uploads/2025/10/Pay-in-3-1.svg",
     mobileImage:
       "https://payjustnow.com/wp-content/uploads/2025/10/Pay-in-3-mobile-1.svg",
-    link: "#",
+    link: "/payin3",
     variant: "surface_green",
   },
   {
@@ -207,7 +207,7 @@ const aboutOptions = [
     image: "https://payjustnow.com/wp-content/uploads/2025/10/FC-mobimoney.svg",
     mobileImage:
       "https://payjustnow.com/wp-content/uploads/2025/10/FC-mobimoney-mobile.svg",
-    link: "#",
+    link: "/finchoice-mobimoney-your-flexible-account-for-those-emergencies",
     variant: "cool_blue",
   },
 ];

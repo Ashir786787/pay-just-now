@@ -21,7 +21,7 @@ const NAV = [
     href: "/support",
     children: [
       { label: "Help", href: "/support" },
-      { label: "Operational Status", href: "/support" },
+      { label: "Operational Status", href: "/status" },
     ],
   },
 ];

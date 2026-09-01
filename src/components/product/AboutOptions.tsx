@@ -21,6 +21,7 @@ export default function AboutOptions({ options }: AboutOptionsProps) {
           </div>
         </div>
         <div className="content-grid content-grid-light content-grid-two">
+          <div className="cg-row">
           {options.map((option, index) => (
             <div className="cg-col" key={index}>
               <div
@@ -70,6 +71,7 @@ export default function AboutOptions({ options }: AboutOptionsProps) {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
