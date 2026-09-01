@@ -36,6 +36,7 @@ export default function AboutOptions({ options }: AboutOptionsProps) {
                         className="media image"
                         alt={option.title}
                         src={option.image}
+                        loading="lazy"
                       />
                     </span>
                   </figure>
@@ -50,6 +51,7 @@ export default function AboutOptions({ options }: AboutOptionsProps) {
                           className="media image"
                           alt={option.title}
                           src={option.mobileImage}
+                          loading="lazy"
                         />
                       </span>
                     </figure>

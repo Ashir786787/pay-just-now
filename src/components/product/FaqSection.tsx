@@ -105,21 +105,25 @@ export default function FaqSection({ title, faqs, showCta = true }: FaqSectionPr
 
       {showCta && (
         <div className="container">
-          <div className="cta">
+          <div className="cta cta-knowledge">
             <div className="cta-bg" aria-hidden="true"></div>
-            <h5 className="cta-title">
-              Didn&apos;t find what you&apos;re looking for?
-            </h5>
-            <a
-              href="https://community.payjustnow.com/support/solutions"
-              className="btn btn-dark btn-md"
-            >
-              <span className="btn-fill"></span>
-              <span className="btn-text">
-                <span className="line line-normal">Visit our Knowledge Base</span>
-                <span className="line line-hover">Visit our Knowledge Base</span>
-              </span>
-            </a>
+            <div className="cta-content">
+              <h5 className="cta-title">
+                Didn&apos;t find what you&apos;re looking for?
+              </h5>
+              <a
+                href="https://community.payjustnow.com/support/solutions"
+                className="btn btn-dark btn-md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="btn-fill"></span>
+                <span className="btn-text">
+                  <span className="line line-normal">Visit our Knowledge Base</span>
+                  <span className="line line-hover">Visit our Knowledge Base</span>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       )}
