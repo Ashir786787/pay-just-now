@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const budgetSlides = [
   {
@@ -23,10 +23,23 @@ const budgetSlides = [
 
 export default function ShopNowPayClever() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideWidth, setSlideWidth] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const changeSlide = (nextIndex: number) => {
+  useEffect(() => {
+    const measure = () => {
+      if (trackRef.current) {
+        setSlideWidth(trackRef.current.clientWidth);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const changeSlide = useCallback((nextIndex: number) => {
     setActiveIndex((nextIndex + budgetSlides.length) % budgetSlides.length);
-  };
+  }, []);
 
   return (
     <section className="section section-light section-budget">
@@ -83,8 +96,8 @@ export default function ShopNowPayClever() {
             ))}
           </div>
         </div>
-        <div className="budget-carousel-wrapper glide__track" data-glide-el="track">
-          <div className="budget-carousel-inner glide__slides" style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
+          <div className="budget-carousel-wrapper glide__track" data-glide-el="track" ref={trackRef}>
+          <div className="budget-carousel-inner glide__slides" style={{ transform: `translate3d(${activeIndex === 0 ? 0 : -slideWidth}px, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
             {budgetSlides.map((slide, index) => (
               <div key={slide.id} className={`budget-item glide__slide ${slide.id}${index === 0 ? " glide__slide--active" : ""}`}>
                 <div className="content-grid content-grid-light content-grid-four">
