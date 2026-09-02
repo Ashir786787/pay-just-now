@@ -1092,6 +1092,38 @@ h6 {
   justify-content: flex-start;
   position: relative;
   z-index: 2;
+  opacity: 0;
+  transform: translateY(4rem);
+  animation: heroContentReveal 1.2s var(--ease) 0.2s forwards;
+}
+
+#shopper_home .section-hero .s-media {
+  opacity: 0;
+  transform: translateX(4rem);
+  animation: heroMediaReveal 1.2s var(--ease) 0.4s forwards;
+}
+
+@keyframes heroContentReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroMediaReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #shopper_home .section-hero .s-content,
+  #shopper_home .section-hero .s-media {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 #shopper_home .section-hero .s-title,
@@ -1235,15 +1267,21 @@ h6 {
 }
 
 .budget-carousel {
-  width: auto;
-  max-width: calc(100vw * (50% - 66.4rem));
-  margin-left: calc(50% - 66.4rem);
-  margin-right: unset;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.budget-carousel .budget-carousel-inner {
+  display: flex;
+  width: 200%;
 }
 
 .budget-carousel .budget-item {
-  flex-wrap: wrap;
+  flex: 0 0 50%;
   flex-shrink: 0;
+  padding: 0 1.6rem;
+  box-sizing: border-box;
 }
 
 .budget-carousel .budget-item .content-grid {
