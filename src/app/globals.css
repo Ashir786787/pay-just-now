@@ -6687,6 +6687,78 @@ h6 {
   }
 }
 
+#product .cta.cta-knowledge {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+  min-height: 8rem;
+  padding: 2.4rem 3.2rem 2.4rem 4.8rem;
+  margin-top: 0;
+  background: #273500;
+  border-radius: 1.6rem;
+  border-left: 0.8rem solid #bdf500;
+  color: #fff;
+}
+
+#product .cta.cta-knowledge .cta-bg {
+  display: none;
+}
+
+#product .cta.cta-knowledge .cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.2rem;
+  width: 100%;
+}
+
+#product .cta.cta-knowledge .cta-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  max-width: 56rem;
+}
+
+#product .cta.cta-knowledge .btn {
+  background: #fff;
+  color: var(--ink);
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+#product .cta.cta-knowledge .btn .btn-fill {
+  background: #bdf500;
+}
+
+@media (max-width: 1099px) {
+  #product .cta.cta-knowledge {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.6rem;
+    min-height: auto;
+    padding: 2.4rem;
+    margin-top: 0;
+  }
+  #product .cta.cta-knowledge .cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
+  #product .cta.cta-knowledge .cta-title {
+    font-size: 2.4rem;
+    max-width: 100%;
+  }
+  #product .cta.cta-knowledge .btn {
+    width: 100%;
+  }
+}
+
 #product .section-about-options {
   padding: 8rem 0;
 }
