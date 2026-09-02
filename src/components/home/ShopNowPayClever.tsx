@@ -85,7 +85,7 @@ export default function ShopNowPayClever() {
           </div>
         </div>
         <div className="budget-carousel-wrapper glide__track" data-glide-el="track">
-          <div className="budget-carousel-inner glide__slides" style={{ transform: `translate3d(${activeIndex === 0 ? 0 : activeIndex * -100}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
+          <div className="budget-carousel-inner glide__slides" style={{ transform: `translate3d(${activeIndex * -50}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
             {budgetSlides.map((slide, index) => (
               <div key={slide.id} className={`budget-item glide__slide ${slide.id}`}>
                 <div className="content-grid content-grid-light content-grid-four">
