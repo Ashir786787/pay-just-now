@@ -45,9 +45,9 @@ export default function ShopNowPayClever() {
         <div className="budget-carousel-nav" data-glide-el="controls">
           <div className="budget-carousel-item-names">
             {budgetSlides.map((slide, index) => (
-              <button key={slide.id} type="button" onClick={() => changeSlide(index)} className={`budget-carousel-item-name${index === activeIndex ? " active" : ""}`}>
+              <span key={slide.id} onClick={() => changeSlide(index)} className={`budget-carousel-item-name${index === activeIndex ? " active" : ""}`}>
                 {slide.label}
-              </button>
+              </span>
             ))}
           </div>
           <button

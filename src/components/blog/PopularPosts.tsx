@@ -11,8 +11,15 @@ function FeaturedPost({ post }: { post: BlogPost }) {
   return (
     <article className="blog-card">
       {post.image && (
-        <Link href={postHref(post.title)} className="blog-card-media-link blog-card-media">
-          <img src={post.image} alt={post.title} />
+        <Link href={postHref(post.title)} className="blog-card-media-link blog-card-media blog-card-media-video">
+          <img src={post.videoThumb || post.image} alt={post.title} />
+          {post.video && (
+            <span className="blog-card-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M6 4l10 6-10 6V4z" />
+              </svg>
+            </span>
+          )}
         </Link>
       )}
       <div className="blog-card-body">

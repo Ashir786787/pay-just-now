@@ -23,30 +23,43 @@ const letterPath = [
 const rectPath =
   "M0 20.1422C0 9.01797 8.95431 0 20 0H408C419.046 0 428 9.01796 428 20.1422V404.858C428 415.982 419.046 425 408 425H20C8.9543 425 0 415.982 0 404.858V20.1422Z";
 
+const splitTransition = { duration: 0.8, ease: [0.19, 1, 0.22, 1] as const };
+
 export default function PageLoader() {
   return (
     <motion.div
       className="page-loader"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.4, ease: "easeOut" } }}
+      exit={{ opacity: 0, transition: { duration: 0.4, delay: 1.15, ease: "easeOut" } }}
     >
       <div className="page-loader-bg">
-        <div className="page-loader-bg-top">
-          <div className="rounded"></div>
-        </div>
-        <div className="page-loader-bg-bottom">
-          <div className="rounded"></div>
-        </div>
+        <motion.div className="split-panel split-top" exit={{ y: "-100%", transition: { ...splitTransition, delay: 0.0 } }}>
+          <div className="page-loader-bg-top">
+            <div className="rounded"></div>
+          </div>
+        </motion.div>
+        <motion.div className="split-panel split-bottom" exit={{ y: "100%", transition: { ...splitTransition, delay: 0.0 } }}>
+          <div className="page-loader-bg-bottom">
+            <div className="rounded"></div>
+          </div>
+        </motion.div>
       </div>
       <div className="page-loader-bg page-loader-bg-alt">
-        <div className="page-loader-bg-top">
-          <div className="rounded"></div>
-        </div>
-        <div className="page-loader-bg-bottom">
-          <div className="rounded"></div>
-        </div>
+        <motion.div className="split-panel split-top" exit={{ y: "-100%", transition: { ...splitTransition, delay: 0.55 } }}>
+          <div className="page-loader-bg-top">
+            <div className="rounded"></div>
+          </div>
+        </motion.div>
+        <motion.div className="split-panel split-bottom" exit={{ y: "100%", transition: { ...splitTransition, delay: 0.55 } }}>
+          <div className="page-loader-bg-bottom">
+            <div className="rounded"></div>
+          </div>
+        </motion.div>
       </div>
-      <div className="page-loader-logo">
+      <motion.div
+        className="page-loader-logo"
+        exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
+      >
         {letterPath.map((letter, i) => (
           <motion.svg
             key={i}
@@ -65,7 +78,7 @@ export default function PageLoader() {
             <path className="rect" d={rectPath} fill="black" />
           </motion.svg>
         ))}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   AppStoreRatingBadge,
   GooglePlayRatingBadge,
@@ -77,9 +78,9 @@ function Stars() {
   );
 }
 
-function ReviewImage({ review, ariaHidden = false }: { review: (typeof reviewList)[number]; ariaHidden?: boolean }) {
+function ReviewImage({ review }: { review: (typeof reviewList)[number] }) {
   return (
-    <div className="review review-image" aria-hidden={ariaHidden || undefined}>
+    <div className="review review-image">
       <div className="review-inner">
         <figure className="media-wrapper image-wrapper responsive">
           <span className="media-inner image-inner">
@@ -91,9 +92,9 @@ function ReviewImage({ review, ariaHidden = false }: { review: (typeof reviewLis
   );
 }
 
-function ReviewCard({ review, ariaHidden = false }: { review: (typeof reviewList)[number]; ariaHidden?: boolean }) {
+function ReviewCard({ review }: { review: (typeof reviewList)[number] }) {
   return (
-    <div className="review review-content" aria-hidden={ariaHidden || undefined}>
+    <div className="review review-content">
       <div className="review-inner">
         <div className="review-icon">
           <ReviewIcon wide={review.iconWide} />
@@ -131,13 +132,12 @@ export default function CustomerReviews() {
           </div>
           <div className="reviews">
             <div className="reviews-row reviews-row-top">
-              {[...reviewList, ...reviewList].flatMap((review, index) => {
-                const clone = index >= reviewList.length;
-                return [
-                  <ReviewImage key={`img-${index}`} review={review} ariaHidden={clone} />,
-                  <ReviewCard key={`card-${index}`} review={review} ariaHidden={clone} />,
-                ];
-              })}
+              {reviewList.map((review, index) => (
+                <Fragment key={review.name}>
+                  <ReviewImage review={review} />
+                  <ReviewCard review={review} />
+                </Fragment>
+              ))}
             </div>
             <div className="badges">
               <div className="badge">

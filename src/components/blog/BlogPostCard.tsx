@@ -43,12 +43,17 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
   return (
     <article className="blog-card">
       {post.image ? (
-        <a href={postHref(post.title)} className="blog-card-media-link blog-card-media">
+        <a href={postHref(post.title)} className="blog-card-media-link blog-card-media blog-card-media-video">
           <img
-            src={post.image}
+            src={post.videoThumb || post.image}
             alt={post.title}
             loading="lazy"
           />
+          <span className="blog-card-play" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M6 4l10 6-10 6V4z" />
+            </svg>
+          </span>
         </a>
       ) : (
         <div className="blog-card-media" aria-hidden="true"></div>

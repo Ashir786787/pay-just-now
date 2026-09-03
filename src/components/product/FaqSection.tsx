@@ -54,20 +54,7 @@ export default function FaqSection({ title, faqs, showCta = true }: FaqSectionPr
                   }}
                 >
                   <h6 className="accordion-title">{faq.question}</h6>
-                  <span className="accordion-toggle" aria-hidden="true">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
+                  <span className="accordion-toggle" aria-hidden="true"></span>
                 </div>
                 <div className="accordion-body">
                   <div className="accordion-text">{faq.answer}</div>

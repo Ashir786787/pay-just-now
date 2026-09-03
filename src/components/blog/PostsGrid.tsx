@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   BlogPost,
   blogPosts,
-  categories,
+  categoryTiles,
   sponsorAd,
 } from "./blog-data";
 import BlogPostCard from "./BlogPostCard";
@@ -64,7 +64,7 @@ export default function PostsGrid() {
     <section className="section section-light section-posts" id="posts">
       <div className="container">
         <div className="blog-filter-bar">
-          <h2 className="s-title">All Posts</h2>
+          <h2 className="s-title">Explore by Category</h2>
           <div className="blog-select-wrap">
             <label htmlFor="blog-filter" className="sr-only">
               Filter posts by category
@@ -77,7 +77,7 @@ export default function PostsGrid() {
               className="blog-select"
             >
               <option value="all">All</option>
-              {categories.map((category) => (
+              {categoryTiles.map((category) => (
                 <option key={category.id} value={category.label}>
                   {category.label}
                 </option>

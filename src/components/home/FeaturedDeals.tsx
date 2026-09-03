@@ -100,7 +100,7 @@ export default function FeaturedDeals() {
       <div className="featured-deals-wrapper">
         <div className="featured-deals glide">
           <div data-glide-el="track" className="glide__track">
-            <div className="deals glide__slides" style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
+            <div className="deals glide__slides" style={{ transform: `translate3d(-${activeIndex * (100 / 3)}%, 0, 0)`, transition: "transform 0.8s var(--ease)" }}>
               {deals.map((deal) => (
                 <div key={deal.title} className="deal glide__slide">
                   <a className="deal-link" href={deal.href} aria-label={deal.title}></a>

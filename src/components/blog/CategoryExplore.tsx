@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { categories } from "./blog-data";
+import { categoryTiles } from "./blog-data";
 
 export default function CategoryExplore() {
   return (
@@ -12,7 +12,7 @@ export default function CategoryExplore() {
           </Link>
         </div>
         <div className="blog-categories">
-          {categories.map((category) => (
+          {categoryTiles.map((category) => (
             <Link
               key={category.id}
               href="#posts"
@@ -22,7 +22,7 @@ export default function CategoryExplore() {
                 src={category.icon}
                 alt=""
                 width={25}
-                height={24}
+                height={25}
                 className="blog-category-icon"
               />
               <span className="blog-category-label">{category.label}</span>

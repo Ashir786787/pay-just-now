@@ -5,6 +5,8 @@ export interface BlogPost {
   date: string;
   readTime: string;
   image?: string;
+  video?: boolean;
+  videoThumb?: string;
 }
 
 export function postHref(title: string) {
@@ -70,14 +72,45 @@ export const categories: BlogCategory[] = [
   },
 ];
 
+export const categoryTiles: BlogCategory[] = [
+  {
+    id: "42",
+    label: "How it works",
+    icon: "https://payjustnow.com/wp-content/uploads/2025/10/howitworks-cat.svg",
+  },
+  {
+    id: "43",
+    label: "Pay in 12",
+    icon: "https://payjustnow.com/wp-content/uploads/2025/10/pay-in-12-category-icon.svg",
+  },
+  {
+    id: "44",
+    label: "Pay in 3",
+    icon: "https://payjustnow.com/wp-content/uploads/2025/10/pay-in-3-category-icon.svg",
+  },
+  {
+    id: "40",
+    label: "Insurance",
+    icon: "https://payjustnow.com/wp-content/uploads/2025/10/insurance-category-icon.svg",
+  },
+  {
+    id: "41",
+    label: "Finance",
+    icon: "https://payjustnow.com/wp-content/uploads/2025/10/finance-category-icon.svg",
+  },
+];
+
 export const featuredPost: BlogPost = {
   title: "5 Clever Ways to Shop Smarter with PayJustNow’s Pay in 3",
   categories: ["Misc"],
   author: "By Robyn Speelman",
   date: "August 2025",
   readTime: "3min",
+  video: true,
   image:
     "https://payjustnow.com/wp-content/uploads/2025/03/Frame-427319738-1.jpg",
+  videoThumb:
+    "https://payjustnow.com/wp-content/uploads/2025/12/Screenshot-2025-12-09-at-08.49.jpg",
 };
 
 export const mostPopularPosts: BlogPost[] = [
@@ -148,8 +181,11 @@ export const blogPosts: BlogPost[] = [
     author: "By Robyn Speelman",
     date: "Aug 2025",
     readTime: "3min",
+    video: true,
     image:
       "https://payjustnow.com/wp-content/uploads/2025/03/Frame-427319738-1.jpg",
+    videoThumb:
+      "https://payjustnow.com/wp-content/uploads/2025/12/Screenshot-2025-12-09-at-08.49.jpg",
   },
   {
     title: "FinChoice Accident Cover",
