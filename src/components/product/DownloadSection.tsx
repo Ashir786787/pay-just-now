@@ -9,9 +9,18 @@ import {
   GooglePlayIcon,
 } from "@/components/icons/PjnBrandIcons";
 
-export default function DownloadSection() {
+interface DownloadSectionProps {
+  variant?: "cool-blue" | "light";
+}
+
+export default function DownloadSection({ variant = "cool-blue" }: DownloadSectionProps) {
+  const isLight = variant === "light";
   return (
-    <section className="section section-lightest section-download section-download-cool-blue section-pad-top">
+    <section
+      className={`section ${isLight ? "section-light" : "section-lightest"} section-download ${
+        isLight ? "section-download-light" : "section-download-cool-blue"
+      } section-pad-top`}
+    >
       <div className="container">
         <div className="s-inner">
           <div className="s-content">
@@ -74,7 +83,12 @@ export default function DownloadSection() {
                   </li>
                 </ul>
               </div>
-              <a href="#" className="btn btn-light btn-lg desktop-only">
+              <a
+                href="#"
+                className={`btn ${
+                  isLight ? "btn-outline-dark" : "btn-light"
+                } btn-lg desktop-only`}
+              >
                 <span className="btn-fill"></span>
                 <span className="btn-text">Download</span>
               </a>
