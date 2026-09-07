@@ -19,7 +19,7 @@ interface Deal {
 const deals: Deal[] = [
   {
     title: "Save Up To 35% on Selected Clothing",
-    href: "#",
+    href: "https://monosimovements.co.za/collections/new-arrivals/new?utm_medium=app&utm_source=pjn&utm_campaign=monosiaug2024",
     image: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_Thumbnail_1_10_e60d732d2c.png",
     imageWidth: 223,
     imageHeight: 156,
@@ -32,7 +32,7 @@ const deals: Deal[] = [
   },
   {
     title: "Apple iPad 9.7 - Now R1099!",
-    href: "#",
+    href: "https://techmarkit.co.za/collections/on-promo/products/apple-ipad-9-7-5th-gen-wifi-cell-32gb-space-grey-5?variant=46412917276925",
     image: "https://payjustnow.com/wp-content/uploads/2026/02/SM-X133NZAAAFA-NEW_5000x.jpg",
     imageWidth: 800,
     imageHeight: 800,
@@ -45,7 +45,7 @@ const deals: Deal[] = [
   },
   {
     title: "R350 OFF Flights! Choose from 600+Airlines. T&C's apply",
-    href: "#",
+    href: "https://www.alternativeairlines.com/payjustnow?utm_medium=referral&utm_source=payjustnow&utm_campaign=deals",
     image: "https://payjustnow.com/wp-content/uploads/2025/10/Alternative-Airlines-background.png",
     imageWidth: 156,
     imageHeight: 156,
@@ -58,7 +58,7 @@ const deals: Deal[] = [
   },
   {
     title: "Sign Up & Get 25% Off Your First Purchase",
-    href: "#",
+    href: "https://jockey.co.za/#footer-signup",
     image: "https://payjustnow.com/wp-content/uploads/2025/10/thumbnail_400x280_PX_3_3da52d6fec.jpg",
     imageWidth: 223,
     imageHeight: 156,
@@ -90,7 +90,7 @@ export default function FeaturedDeals() {
           <div className="s-content">
             <div className="s-title-wrapper">
               <h2 className="s-title">Deals</h2>
-              <a className="s-link" href="#">
+              <a className="s-link" href="https://app.payjustnow.com/my-deals/all">
                 View All
               </a>
             </div>
@@ -144,7 +144,7 @@ export default function FeaturedDeals() {
             ))}
           </div>
           <div className="deals-cta">
-            <a className="deals-cta-link" href="#"></a>
+            <a className="deals-cta-link" href="https://app.payjustnow.com/login"></a>
             <div className="deals-cta-inner">
               <div className="deals-cta-media">
                 <div className="deals-cta-text">

@@ -1,5 +1,7 @@
 interface Benefit {
   icon: string;
+  iconWidth?: number;
+  iconHeight?: number;
   text: string;
 }
 
@@ -17,17 +19,26 @@ export default function BenefitsMarquee({
   return (
     <section className="section section-benefits">
       <div className="container">
-        <h2 className="s-title s-title-alt">{title}</h2>
+        <div className="s-inner">
+          <div className="s-content">
+            <h2 className="s-title s-title-alt">{title}</h2>
+          </div>
+        </div>
       </div>
       <div className="carousel carousel-benefits">
         <div className="carousel-track">
           {duplicated.map((benefit, index) => (
-            <div className="carousel-item" key={index}>
+            <div
+              className={`carousel-item${
+                (benefit.iconWidth ?? 24) > 24 ? " icon-lg" : ""
+              }`}
+              key={index}
+            >
               <figure className="media-wrapper image-wrapper">
                 <span className="media-inner image-inner">
                   <img
-                    width="24"
-                    height="24"
+                    width={benefit.iconWidth ?? 24}
+                    height={benefit.iconHeight ?? 24}
                     className="media image"
                     alt=""
                     src={benefit.icon}

@@ -14,7 +14,7 @@ const stores: Store[] = [
   {
     name: "Superbalist",
     status: "Online only",
-    href: "#",
+    href: "https://superbalist.com/",
     image: "https://payjustnow.com/wp-content/uploads/2026/02/compressed-image-2.jpg",
     imageWidth: 4758,
     imageHeight: 4758,
@@ -25,7 +25,7 @@ const stores: Store[] = [
   {
     name: "Game",
     status: "In-store only",
-    href: "#",
+    href: "https://www.game.co.za/",
     image: "https://payjustnow.com/wp-content/uploads/2024/03/f78b84c0eb6d6f7c06e6fb60776af450-1.jpg",
     imageWidth: 800,
     imageHeight: 533,
@@ -36,7 +36,7 @@ const stores: Store[] = [
   {
     name: "Edgars",
     status: "Online & In-store",
-    href: "#",
+    href: "https://www.edgars.co.za/",
     image: "https://payjustnow.com/wp-content/uploads/2024/03/696c07ae54098fa73a05409c801bfe62-1.jpg",
     imageWidth: 800,
     imageHeight: 508,
@@ -47,7 +47,7 @@ const stores: Store[] = [
   {
     name: "Adidas",
     status: "In-store only",
-    href: "#",
+    href: "https://www.adidas.co.za/",
     image: "https://payjustnow.com/wp-content/uploads/2025/04/PJN4.jpg",
     imageWidth: 511,
     imageHeight: 800,
@@ -65,7 +65,7 @@ export default function FeaturedStores() {
           <div className="s-content">
             <div className="s-title-wrapper">
               <h2 className="s-title">Featured Stores</h2>
-              <a className="s-link" href="#">
+              <a className="s-link" href="https://app.payjustnow.com/stores">
                 View All
               </a>
             </div>

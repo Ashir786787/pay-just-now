@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Anton, Manrope, Outfit } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import HeaderCta from "@/components/layout/HeaderCta";
-import Footer from "@/components/layout/Footer";
-import AppFAB from "@/components/layout/AppFAB";
 import ClientProviders from "@/components/layout/ClientProviders";
 
 const anton = Anton({
@@ -32,7 +28,12 @@ export const metadata: Metadata = {
   description:
     "PayJustNow lets you split your purchase into 3 interest-free payments or pay in 12 months. Shop now, pay clever.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -47,15 +48,7 @@ export default function RootLayout({
       className={[anton.variable, manrope.variable, outfit.variable].join(" ")}
     >
       <body className="antialiased">
-        <ClientProviders>
-          <Header />
-          <main className="min-h-screen">
-            <HeaderCta />
-            {children}
-          </main>
-          <Footer />
-          <AppFAB />
-        </ClientProviders>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

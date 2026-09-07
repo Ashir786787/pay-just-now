@@ -2,7 +2,11 @@ interface OptionCard {
   title: string;
   description: string;
   image: string;
+  desktopWidth?: number;
+  desktopHeight?: number;
   mobileImage?: string;
+  mobileWidth?: number;
+  mobileHeight?: number;
   link: string;
   variant: string;
 }
@@ -22,57 +26,57 @@ export default function AboutOptions({ options }: AboutOptionsProps) {
         </div>
         <div className="content-grid content-grid-light content-grid-two">
           <div className="cg-row">
-          {options.map((option, index) => (
-            <div className="cg-col" key={index}>
-              <div
-                className={`image-wrapper cg-item cg-item-content ${option.variant}`}
-              >
-                <div className="s-media desktop-only">
-                  <figure className="media-wrapper image-wrapper">
-                    <span className="media-inner image-inner">
-                      <img
-                        width="600"
-                        height="400"
-                        className="media image"
-                        alt={option.title}
-                        src={option.image}
-                        loading="lazy"
-                      />
-                    </span>
-                  </figure>
-                </div>
-                {option.mobileImage && (
-                  <div className="s-media mobile-only">
-                    <figure className="media-wrapper image-wrapper">
+            {options.map((option, index) => (
+              <div className="cg-col" key={index}>
+                <div
+                  className={`image-wrapper cg-item cg-item-content ${option.variant}`}
+                >
+                  <div className="s-media desktop-only">
+                    <figure className="media-wrapper image-wrapper responsive">
                       <span className="media-inner image-inner">
                         <img
-                          width="600"
-                          height="700"
+                          width={option.desktopWidth ?? 500}
+                          height={option.desktopHeight ?? 264}
                           className="media image"
                           alt={option.title}
-                          src={option.mobileImage}
+                          src={option.image}
                           loading="lazy"
                         />
                       </span>
                     </figure>
                   </div>
-                )}
-              </div>
-              <div className="cg-item cg-item-content">
-                <h3 className="cg-title">{option.title}</h3>
-                <p className="cg-text">{option.description}</p>
-                <div className="s-buttons">
-                  <a href={option.link} className="btn btn-primary btn-md">
-                    <span className="btn-fill"></span>
-                    <span className="btn-text">
-                      <span className="line line-normal">More Information</span>
-                      <span className="line line-hover">More Information</span>
-                    </span>
-                  </a>
+                  {option.mobileImage && (
+                    <div className="s-media mobile-only">
+                      <figure className="media-wrapper image-wrapper responsive">
+                        <span className="media-inner image-inner">
+                          <img
+                            width={option.mobileWidth ?? 255}
+                            height={option.mobileHeight ?? 254}
+                            className="media image"
+                            alt={option.title}
+                            src={option.mobileImage}
+                            loading="lazy"
+                          />
+                        </span>
+                      </figure>
+                    </div>
+                  )}
+                </div>
+                <div className="cg-item cg-item-content">
+                  <h4 className="cg-title">{option.title}</h4>
+                  <p className="cg-text">{option.description}</p>
+                  <div className="s-buttons">
+                    <a href={option.link} className="btn btn-primary btn-md">
+                      <span className="btn-fill"></span>
+                      <span className="btn-text">
+                        <span className="line line-normal">More Information</span>
+                        <span className="line line-hover">More Information</span>
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
       </div>

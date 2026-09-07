@@ -67,7 +67,6 @@ export default function Header() {
 
   const onParentClick = (e: React.MouseEvent<HTMLAnchorElement>, label: string) => {
     if (typeof window === "undefined") return;
-    if (!window.matchMedia("(max-width: 1099px)").matches) return;
     e.preventDefault();
     setExpanded(expanded === label ? null : label);
   };
@@ -187,14 +186,14 @@ export default function Header() {
           </nav>
 
           <div className="header-buttons">
-            <a className="btn btn-outline-dark" href="#">
+            <Link href="/login" className="btn btn-outline-dark btn-lg">
               <span className="btn-fill" aria-hidden="true"></span>
               <ButtonText label="Log In" />
-            </a>
-            <a className="btn btn-dark" href="#">
+            </Link>
+            <Link href="/register/overview" className="btn btn-dark btn-lg btn-signup">
               <span className="btn-fill" aria-hidden="true"></span>
               <ButtonText label="Sign Up" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

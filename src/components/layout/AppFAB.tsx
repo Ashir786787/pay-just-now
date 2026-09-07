@@ -38,26 +38,26 @@ export default function AppFAB() {
       </div>
       <div className="app-icons">
         <a
-          href="#"
+          href="/register/overview"
           className="app-icon"
         >
           <AppleIcon />
         </a>
         <a
-          href="#"
+          href="/register/overview"
           className="app-icon"
         >
           <AppGalleryIcon />
         </a>
         <a
-          href="#"
+          href="/register/overview"
           className="app-icon"
         >
           <GooglePlayIcon />
         </a>
       </div>
       <a
-        href="#"
+        href="/register/overview"
         className="app-button"
       >
         Download

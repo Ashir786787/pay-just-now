@@ -23,43 +23,22 @@ const letterPath = [
 const rectPath =
   "M0 20.1422C0 9.01797 8.95431 0 20 0H408C419.046 0 428 9.01796 428 20.1422V404.858C428 415.982 419.046 425 408 425H20C8.9543 425 0 415.982 0 404.858V20.1422Z";
 
-const splitTransition = { duration: 0.8, ease: [0.19, 1, 0.22, 1] as const };
+const ease = [0.19, 1, 0.22, 1] as const;
+const lift: Record<string, any> = {
+  y: "-100%",
+  transition: { duration: 0.85, ease },
+};
 
 export default function PageLoader() {
   return (
-    <motion.div
-      className="page-loader"
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.4, delay: 1.15, ease: "easeOut" } }}
-    >
-      <div className="page-loader-bg">
-        <motion.div className="split-panel split-top" exit={{ y: "-100%", transition: { ...splitTransition, delay: 0.0 } }}>
-          <div className="page-loader-bg-top">
-            <div className="rounded"></div>
-          </div>
-        </motion.div>
-        <motion.div className="split-panel split-bottom" exit={{ y: "100%", transition: { ...splitTransition, delay: 0.0 } }}>
-          <div className="page-loader-bg-bottom">
-            <div className="rounded"></div>
-          </div>
-        </motion.div>
-      </div>
-      <div className="page-loader-bg page-loader-bg-alt">
-        <motion.div className="split-panel split-top" exit={{ y: "-100%", transition: { ...splitTransition, delay: 0.55 } }}>
-          <div className="page-loader-bg-top">
-            <div className="rounded"></div>
-          </div>
-        </motion.div>
-        <motion.div className="split-panel split-bottom" exit={{ y: "100%", transition: { ...splitTransition, delay: 0.55 } }}>
-          <div className="page-loader-bg-bottom">
-            <div className="rounded"></div>
-          </div>
-        </motion.div>
-      </div>
+    <motion.div className="page-loader" exit={{ opacity: 0, transition: { duration: 0.001, delay: 1.3 } }}>
+      <motion.div className="page-loader-bg" initial={{ y: 0 }} exit={{ ...lift, transition: { duration: 0.85, delay: 0.05, ease } }} />
       <motion.div
-        className="page-loader-logo"
-        exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
-      >
+        className="page-loader-bg page-loader-bg-alt"
+        initial={{ y: 0 }}
+        exit={{ y: "-100%", transition: { duration: 0.85, delay: 0.15, ease } }}
+      />
+      <div className="page-loader-logo">
         {letterPath.map((letter, i) => (
           <motion.svg
             key={i}
@@ -70,15 +49,16 @@ export default function PageLoader() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{ transformOrigin: letter.origin }}
-            initial={{ opacity: 0, scale: 0, y: "50%" }}
-            animate={{ opacity: 1, scale: 1, y: "50%" }}
-            transition={{ duration: 0.6, delay: 0.15 * i, ease: [0.19, 1, 0.22, 1] }}
+            initial={{ opacity: 0, scale: 0.5, y: "45%" }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.08 * i, ease }}
+            exit={{ opacity: 0, scale: 0.5, y: 0, transition: { duration: 0.35, ease: "easeInOut" } }}
           >
             <path className="shape" d={letter.shape} fill="black" />
             <path className="rect" d={rectPath} fill="black" />
           </motion.svg>
         ))}
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

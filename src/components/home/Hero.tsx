@@ -22,7 +22,7 @@ export default function Hero() {
               Shop more. Stress less. Clever.
             </p>
             <div className="s-buttons">
-              <a href="#" className="btn btn-primary btn-md ">
+              <a href="/register/overview" className="btn btn-primary btn-md ">
                 <span className="btn-fill"></span>
                 <span className="btn-text">
                   <span className="line line-normal">Sign Up</span>
@@ -44,17 +44,17 @@ export default function Hero() {
               <div className="app-links-wrapper">
                 <ul className="app-links-list">
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a href="/register/overview" className="app-link">
                       <AppleIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a href="/register/overview" className="app-link">
                       <AppGalleryIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a href="/register/overview" className="app-link">
                       <GooglePlayIcon />
                     </a>
                   </li>

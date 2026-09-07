@@ -19,7 +19,7 @@ export default function DownloadSection({ variant = "cool-blue" }: DownloadSecti
     <section
       className={`section ${isLight ? "section-light" : "section-lightest"} section-download ${
         isLight ? "section-download-light" : "section-download-cool-blue"
-      } section-pad-top`}
+      }`}
     >
       <div className="container">
         <div className="s-inner">
@@ -29,13 +29,28 @@ export default function DownloadSection({ variant = "cool-blue" }: DownloadSecti
               Download the PayJustNow app to start shopping.
             </p>
             <div className="s-buttons">
-              <a className="app-button" href="#">
+              <a
+                className="app-button"
+                href="https://apps.apple.com/za/app/payjustnow/id1542974651"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <AppStoreButton />
               </a>
-              <a className="app-button" href="#">
+              <a
+                className="app-button"
+                href="https://appgallery.huawei.com/app/C103873181"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <AppGalleryButton />
               </a>
-              <a className="app-button" href="#">
+              <a
+                className="app-button"
+                href="https://play.google.com/store/apps/details?id=com.payjustnow"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <GooglePlayButton />
               </a>
             </div>
@@ -52,7 +67,7 @@ export default function DownloadSection({ variant = "cool-blue" }: DownloadSecti
                   height="901"
                   className="media image"
                   alt=""
-                  src="https://payjustnow.com/wp-content/uploads/2025/04/image-12-1.jpg"
+                  src="https://payjustnow.com/wp-content/uploads/2025/10/image-12-1.jpg"
                 />
               </span>
             </figure>
@@ -67,24 +82,39 @@ export default function DownloadSection({ variant = "cool-blue" }: DownloadSecti
               <div className="app-links-wrapper">
                 <ul className="app-links-list">
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a
+                      href="https://apps.apple.com/za/app/payjustnow/id1542974651"
+                      className="app-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <AppleIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a
+                      href="https://appgallery.huawei.com/app/C103873181"
+                      className="app-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <AppGalleryIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.payjustnow"
+                      className="app-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <GooglePlayIcon />
                     </a>
                   </li>
                 </ul>
               </div>
               <a
-                href="#"
+                href="/register/overview"
                 className={`btn ${
                   isLight ? "btn-outline-dark" : "btn-light"
                 } btn-lg desktop-only`}

@@ -24,37 +24,81 @@ export function PostMetas({
   date: string;
   readTime: string;
 }) {
+  const parts = [author, date, readTime].filter((part) => part.trim());
+  let index = -1;
   return (
     <p className="blog-card-meta">
-      <span className="blog-card-author">{author}</span>
-      <span className="blog-card-meta-sep" aria-hidden="true">
-        •
-      </span>
-      <span>{date}</span>
-      <span className="blog-card-meta-sep" aria-hidden="true">
-        •
-      </span>
-      <span>{readTime}</span>
+      {parts.map((part) => {
+        index += 1;
+        return (
+          <span key={part}>
+            {index > 0 && (
+              <span className="blog-card-meta-sep" aria-hidden="true">
+                •
+              </span>
+            )}
+            {part}
+          </span>
+        );
+      })}
     </p>
   );
 }
 
-export default function BlogPostCard({ post }: { post: BlogPost }) {
+export default function BlogPostCard({
+  post,
+  onPlay,
+}: {
+  post: BlogPost;
+  onPlay?: (post: BlogPost) => void;
+}) {
+  const isVideo = Boolean(post.youtubeId);
   return (
     <article className="blog-card">
       {post.image ? (
-        <a href={postHref(post.title)} className="blog-card-media-link blog-card-media blog-card-media-video">
-          <img
-            src={post.videoThumb || post.image}
-            alt={post.title}
-            loading="lazy"
-          />
-          <span className="blog-card-play" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M6 4l10 6-10 6V4z" />
-            </svg>
-          </span>
-        </a>
+        isVideo && onPlay ? (
+          <button
+            type="button"
+            className={`blog-card-media-link blog-card-media${
+              isVideo ? " blog-card-media-video" : ""
+            }`}
+            onClick={() => onPlay(post)}
+            aria-label={`Play ${post.title}`}
+          >
+            <img
+              src={post.videoThumb || post.image}
+              alt={post.title}
+              loading="lazy"
+            />
+            {isVideo && (
+              <span className="blog-card-play" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M6 4l10 6-10 6V4z" />
+                </svg>
+              </span>
+            )}
+          </button>
+        ) : (
+          <a
+            href={postHref(post.title)}
+            className={`blog-card-media-link blog-card-media${
+              isVideo ? " blog-card-media-video" : ""
+            }`}
+          >
+            <img
+              src={post.videoThumb || post.image}
+              alt={post.title}
+              loading="lazy"
+            />
+            {isVideo && (
+              <span className="blog-card-play" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M6 4l10 6-10 6V4z" />
+                </svg>
+              </span>
+            )}
+          </a>
+        )
       ) : (
         <div className="blog-card-media" aria-hidden="true"></div>
       )}

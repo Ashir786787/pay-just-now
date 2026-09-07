@@ -147,7 +147,7 @@ export default function CustomerReviews() {
                 </div>
                 <div className="badge-reviews">
                   <span className="badge-amount">187 reviews on </span>
-                  <a className="badge-button" href="#">
+                  <a className="badge-button" href="https://apps.apple.com/za/app/payjustnow/id1542974651">
                     <AppStoreRatingBadge />
                   </a>
                 </div>
@@ -159,7 +159,7 @@ export default function CustomerReviews() {
                 </div>
                 <div className="badge-reviews">
                   <span className="badge-amount">187 reviews on </span>
-                  <a className="badge-button" href="#">
+                  <a className="badge-button" href="https://play.google.com/store/apps/details?id=com.payjustnow">
                     <GooglePlayRatingBadge />
                   </a>
                 </div>

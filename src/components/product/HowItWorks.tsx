@@ -1,5 +1,7 @@
 interface Step {
   icon: string;
+  iconWidth?: number;
+  iconHeight?: number;
   title: string;
   description: string;
 }
@@ -33,22 +35,24 @@ export default function HowItWorks({
           <div className={gridClass}>
             <div className="cg-row">
               {steps.map((step, index) => (
-                <div key={index} className="cg-item cg-item-content">
-                  <div className="cg-icon">
-                    <figure className="media-wrapper image-wrapper">
-                      <span className="media-inner image-inner">
-                        <img
-                          width="40"
-                          height="40"
-                          className="media image"
-                          alt=""
-                          src={step.icon}
-                        />
-                      </span>
-                    </figure>
+                <div key={index} className="cg-col">
+                  <div className="cg-item cg-item-content">
+                    <div className="cg-icon">
+                      <figure className="media-wrapper image-wrapper">
+                        <span className="media-inner image-inner">
+                          <img
+                            width={step.iconWidth ?? 24}
+                            height={step.iconHeight ?? 24}
+                            className="media image"
+                            alt=""
+                            src={step.icon}
+                          />
+                        </span>
+                      </figure>
+                    </div>
+                    <h4 className="cg-title">{step.title}</h4>
+                    <p className="cg-text">{step.description}</p>
                   </div>
-                  <h6 className="cg-title">{step.title}</h6>
-                  <p className="cg-text">{step.description}</p>
                 </div>
               ))}
             </div>

@@ -31,17 +31,32 @@ export default function ProductHero({
               <div className="app-links-wrapper">
                 <ul className="app-links-list">
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a
+                      href="https://apps.apple.com/za/app/payjustnow/id1542974651"
+                      className="app-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <AppleIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a
+                      href="https://appgallery.huawei.com/app/C103873181"
+                      className="app-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <AppGalleryIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.payjustnow"
+                      className="app-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <GooglePlayIcon />
                     </a>
                   </li>
@@ -50,11 +65,11 @@ export default function ProductHero({
             </div>
           </div>
           <div className="s-media">
-            <figure className="media-wrapper image-wrapper hero-image-wrapper">
+            <figure className="media-wrapper image-wrapper responsive hero-image-wrapper">
               <span className="media-inner image-inner hero-image-inner">
                 <img
-                  width="900"
-                  height="900"
+                  width="383"
+                  height="548"
                   className="media image hero-image"
                   src={heroImage}
                   alt=""

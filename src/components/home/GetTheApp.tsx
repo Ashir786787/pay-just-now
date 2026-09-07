@@ -18,13 +18,13 @@ export default function GetTheApp() {
             <h2 className="s-title">Get the App</h2>
             <p className="s-text">Download the PayJustNow app to start shopping.</p>
             <div className="s-buttons">
-              <a className="app-button" href="#">
+              <a className="app-button" href="/register/overview">
                 <AppStoreButton />
               </a>
-              <a className="app-button" href="#">
+              <a className="app-button" href="/register/overview">
                 <AppGalleryButton />
               </a>
-              <a className="app-button" href="#">
+              <a className="app-button" href="/register/overview">
                 <GooglePlayButton />
               </a>
             </div>
@@ -33,7 +33,13 @@ export default function GetTheApp() {
           <div className="s-media">
             <figure className="media-wrapper image-wrapper responsive">
               <span className="media-inner image-inner">
-                <img width="783" height="901" className="media image" alt="" src="https://payjustnow.com/wp-content/uploads/2025/04/image-12-1.jpg" />
+                <img
+                  width="783"
+                  height="901"
+                  className="media image"
+                  alt=""
+                  src="https://payjustnow.com/wp-content/uploads/2025/04/image-12-1.jpg"
+                />
               </span>
             </figure>
             <div className="download-app">
@@ -43,23 +49,23 @@ export default function GetTheApp() {
               <div className="app-links-wrapper">
                 <ul className="app-links-list">
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a href="/register/overview" className="app-link">
                       <AppleIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a href="/register/overview" className="app-link">
                       <AppGalleryIcon />
                     </a>
                   </li>
                   <li className="app-link-item">
-                    <a href="#" className="app-link">
+                    <a href="/register/overview" className="app-link">
                       <GooglePlayIcon />
                     </a>
                   </li>
                 </ul>
               </div>
-              <a href="#" className="btn btn-light btn-lg desktop-only">
+              <a href="/register/overview" className="btn btn-light btn-lg desktop-only">
                 <span className="btn-fill"></span>
                 <span className="btn-text">Download</span>
               </a>

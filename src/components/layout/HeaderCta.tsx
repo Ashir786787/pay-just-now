@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import {
   Close16,
   HeaderStars,
@@ -23,13 +24,10 @@ export default function HeaderCta() {
     html.classList.remove("header-cta-active");
     const el = ref.current;
     if (!el) return;
-    el.style.height = `${el.offsetHeight}px`;
     el.style.overflow = "hidden";
-    requestAnimationFrame(() => {
-      el.style.transition = "height 0.5s var(--ease), opacity 0.4s ease";
-      el.style.height = "0px";
-      el.style.opacity = "0";
-    });
+    el.style.transition = "transform 0.5s var(--ease), opacity 0.4s ease";
+    el.style.transform = "translateX(-100%)";
+    el.style.opacity = "0";
   };
 
   return (
@@ -52,8 +50,8 @@ export default function HeaderCta() {
           <span className="header-cta-ratings-text">168k+ ratings</span>
         </div>
       </div>
-      <a
-        href="#"
+      <Link
+        href="/register/overview"
         className="btn btn-outline-light btn-sm"
       >
         <span className="btn-fill"></span>
@@ -61,7 +59,7 @@ export default function HeaderCta() {
           <span className="line line-normal">Download</span>
           <span className="line line-hover">Download</span>
         </span>
-      </a>
+      </Link>
     </div>
   );
 }

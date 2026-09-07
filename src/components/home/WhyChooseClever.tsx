@@ -29,7 +29,7 @@ export default function WhyChooseClever() {
                   Over clunky checkouts, delayed refunds, and the brands you love being off-limits?  Say hello to
                   The Clever Way.
                 </p>
-                <a href="#" className="btn btn-primary btn-lg ">
+                <a href="/register/overview" className="btn btn-primary btn-lg ">
                   <span className="btn-fill"></span>
                   <span className="btn-text">
                     <span className="line line-normal">Sign Up</span>

@@ -67,10 +67,13 @@ export default function ClientProviders({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const html = document.documentElement;
+    setLoading(true);
+    html.classList.remove("site-loaded");
+    window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setLoading(false);
       html.classList.add("site-loaded");
-    }, mounted.current ? 800 : 1200);
+    }, mounted.current ? 1150 : 1400);
     mounted.current = true;
     return () => clearTimeout(timer);
   }, [pathname]);

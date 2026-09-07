@@ -5,6 +5,8 @@ import { useState } from "react";
 interface FaqItem {
   question: string;
   answer: string;
+  answerIntro?: string;
+  answerList?: string[];
 }
 
 interface FaqSectionProps {
@@ -57,7 +59,17 @@ export default function FaqSection({ title, faqs, showCta = true }: FaqSectionPr
                   <span className="accordion-toggle" aria-hidden="true"></span>
                 </div>
                 <div className="accordion-body">
-                  <div className="accordion-text">{faq.answer}</div>
+                  <div className="accordion-text">
+                    {faq.answerIntro && <p>{faq.answerIntro}</p>}
+                    {faq.answerList?.length ? (
+                      <ul>
+                        {faq.answerList.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    {faq.answer && <p>{faq.answer}</p>}
+                  </div>
                 </div>
               </div>
             ))}
@@ -91,26 +103,28 @@ export default function FaqSection({ title, faqs, showCta = true }: FaqSectionPr
       </div>
 
       {showCta && (
-        <div className="container">
+        <div className="container test">
           <div className="cta cta-knowledge">
-            <div className="cta-bg" aria-hidden="true"></div>
-            <div className="cta-content">
-              <h5 className="cta-title">
-                Didn&apos;t find what you&apos;re looking for?
-              </h5>
-              <a
-                href="https://community.payjustnow.com/support/solutions"
-                className="btn btn-dark btn-md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="btn-fill"></span>
-                <span className="btn-text">
-                  <span className="line line-normal">Visit our Knowledge Base</span>
-                  <span className="line line-hover">Visit our Knowledge Base</span>
-                </span>
-              </a>
-            </div>
+              <div className="cta-bg" aria-hidden="true"></div>
+              <div className="cta-content">
+                <h5 className="cta-title">
+                  Didn&apos;t find what you&apos;re looking for?
+                </h5>
+                <a
+                  href="/faqs"
+                  className="btn btn-dark btn-md"
+                >
+                  <span className="btn-fill"></span>
+                  <span className="btn-text">
+                    <span className="line line-normal">
+                      Visit our Knowledge Base
+                    </span>
+                    <span className="line line-hover">
+                      Visit our Knowledge Base
+                    </span>
+                  </span>
+                </a>
+              </div>
           </div>
         </div>
       )}
