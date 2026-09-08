@@ -10,7 +10,7 @@ export interface BlogPost {
   youtubeId?: string;
 }
 
-export const articleRoutes: Record<string, string> = {
+const articleRoutes: Record<string, string> = {
   "5 Clever Ways to Shop Smarter with PayJustNow’s Pay in 3":
     "/5-clever-ways-to-shop-smarter-with-payjustnows-pay-in-3",
 };

@@ -18,7 +18,6 @@ const article = {
   authorImage:
     "https://payjustnow.com/wp-content/uploads/2025/02/image-7.jpg",
   image: "https://payjustnow.com/wp-content/uploads/2025/03/FC-MM.jpg",
-  activateUrl: "https://finchoice.mobi/newloan?ref=PJNWebsiteMM",
 };
 
 const relatedPosts = blogPosts.slice(0, 3);

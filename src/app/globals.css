@@ -8599,10 +8599,6 @@ body.status-page .app-fab {
   }
 }
 
-#product .section-support-help .s-content {
-  justify-content: flex-start;
-}
-
 #shopper_home .section-cta .cta {
   display: flex;
   flex-direction: row;
